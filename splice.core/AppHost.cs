@@ -36,8 +36,8 @@ namespace splice.core
             Plugins.Add(new RegistrationFeature());
 
               //Requires ConnectionString configured in Web.Config
-            //var connectionString = ConfigurationManager.ConnectionStrings["DatabaseContext"].ConnectionString;
-            var connectionString = DataSource.sqlConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings["DatabaseContext"].ConnectionString;
+            //var connectionString = DataSource.sqlConnectionString;
 
             //---NOTE: Install ServiceStack.OrmLite.SqlServer for this to always work.
             container.Register<IDbConnectionFactory>(c =>
