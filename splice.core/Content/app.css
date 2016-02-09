@@ -1,0 +1,104 @@
+﻿md-list-item .md-button {
+    padding: 0 6px 0 6px;
+    /*margin: 6px 8px 6px 8px;*/
+    min-width: 100%;
+    border-radius: 0;
+    font-size: 14px;
+    text-align: left;
+    text-transform: uppercase !important;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-weight: normal;
+}
+
+.list-button:hover {
+    border-left: 2px solid #0094ff !important;
+    padding-left: 20px !important;
+    background: #e3f2fd !important;
+}
+
+.list-button::selection {
+    background: #0094ff !important;
+}
+
+md-content {
+    background: #fafafa;
+}
+
+.card-header {
+    border-left: 3px solid #0094ff;
+    border-radius: 0;
+}
+
+    .card-header card-content {
+        border-radius: 0;
+    }
+
+.product-main {
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid gainsboro;
+    background: white;
+}
+
+.product-main-sub {
+    min-height: 75px;
+    border-bottom: 3px solid #0094ff;
+}
+
+    .product-main-sub md-content {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 120px;
+    }
+
+.product-listing {
+    padding: 20px;
+}
+
+#chartdiv {
+    width: 100%;
+    height: 200px;
+    font-size: 11px;
+}
+
+    #chartdiv a {
+        color: white !important;
+    }
+
+.search-product md-input-container input {
+   
+    box-shadow: 2px 2px 5px #888888;
+    padding-left:50px;
+    background:white;
+    width:90%;
+    border-top-right-radius:60px;
+    border-bottom-right-radius:60px;
+}
+.search-product md-input-container button{
+    margin-left:-3em;
+    margin-top:2.5px;
+}
+
+.search-product md-input-container md-icon {
+    margin-left:3em;
+    padding-top:10px;
+    
+}
+.search-product md-input-container label{
+    padding-left:50px !important;
+    /*margin-top:5em !important;*/
+    font-size:12pt;
+    font-family:'Segoe UI' 
+
+}
+.search-product md-select{
+    /*box-shadow: 2px 2px 5px #888888;*/
+    padding:10px;
+    /*background:white;*/
+}
+.search-row{
+    background:#f5f5f5  ;
+    border-bottom:3px solid #9c27b0;
+}

@@ -1,0 +1,82 @@
+﻿<div>
+    <div class="row">
+        <span style="font-size:16pt; padding-left:10px; ">
+            <i class="fa fa-line-chart" style="color:#9c27b0; font-size:20pt; margin-right:10px;"></i>Daily Transactions
+        </span>
+
+
+        <md-button class="md-raised md-primary" style="padding:10px;background:#33691e; float:right">manage stock</md-button>
+
+
+
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <div style="background:white; padding:15px; padding-bottom:5px;  border-left:3px solid #009688;" flex class="md-whiteframe-z2 row ">
+                <div class="row">
+                    <div class="col s6">
+                        <span style="font-size:12pt; padding-right:10pt;">
+                            <i class="fa fa-shopping-bag" style="color:#9c27b0; font-size:15pt;"></i> Sales
+                        </span>
+                    </div>
+                    <div class="col s6">
+                        <span style="font-size:15pt; color:#9c27b0; text-align:right">N8,802</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <span style="font-size:12pt; padding-right:10pt;">
+                            <i class="fa fa-check" style="color:#33691e; font-size:15pt;"></i> Profit
+                        </span>
+                    </div>
+                    <div class="col s6">
+                        <span style="font-size:15pt; color:#33691e; text-align:right;">N2,500</span>
+
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="row" >
+                <div style=" font-size:16pt; color:white;">
+                    <div class="md-whiteframe-z2 flex" style="padding:30px; width:auto;  background:#9c27b0; padding-bottom:50px; padding-top:50px;">
+                        <span style="font-size:12pt;">Current Stock</span>  <b>1,245</b> <span style="font-size:12pt">items</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s4 ">
+            <div class="row md-whiteframe-z2">
+                <div class="col s5" style="background:#33691e; padding:12pt;">
+                    <p style="text-align:center">
+                        <i class="fa fa-users" style="color:white; font-size:30pt; text-align:center;"></i><br />
+                        <span style="color:white;">Customers</span>
+                    </p>
+                </div>
+                <div class="col s7 " style="background:white; padding:3pt;">
+                    <p style="text-align:center; font-size:25pt;color:#33691e;">
+                        256
+                    </p>
+                </div>
+            </div>
+            <div class="row md-whiteframe-z2">
+                <div class="col s5" style="background:#9c27b0; padding:12pt; ">
+                    <p style="text-align:center">
+                        <i class="fa fa-shopping-bag" style="color:white; font-size:30pt; text-align:center;"></i><br />
+                        <span style="color:white;">Items sold</span>
+                    </p>
+                </div>
+                <div class="col s7" style="background:white; padding:3pt;">
+                    <p style="text-align:center; font-size:25pt;color:#9c27b0;">
+                        1,245
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ng-controller="StoreHealthController" class="col s4 md-whiteframe-z2" style="background:white; padding:10pt; min-height:260px; border-right:3px solid #">
+            <h5 style="font-size:12pt;">Store health</h5><hr />
+            <div id="chartdiv"></div>
+        </div>
+
+    </div>
+</div>
