@@ -1,3 +1,68 @@
-﻿<div>
-    <h2>Welcome to Cashier</h2>
+﻿<div ng-controller="ListCtrl" ng-cloak>
+
+    <md-list style="width:60%; margin-left:auto; margin-right:auto;">
+        <md-subheader class="md-no-sticky header">
+            <span class="md-headline">Sales People</span>
+            <button ng-click="addNewStaff()" class="btn waves-effect waves-light btn-floating" style="background:#9c27b0; float:right;">+</button>
+
+            <md-input-container class="md-icon-float md-block ">
+                <!-- Use floating label instead of placeholder -->
+
+                <label>
+                   Find your staff
+                </label>
+                <md-icon>
+                    <i class="fa fa-search"></i>
+                </md-icon>
+                <input ng-model="user.name" type="text">
+            </md-input-container>
+        </md-subheader>
+        <md-list-item class="salesperson-list" ng-repeat="person in people" ng-click="goToPerson(person.name, $event)">
+            <img alt="{{ person.name }}" ng-src="{{ person.img }}" class="md-avatar" />
+            <!--   <i class="fa fa-user" style="font-size:30px; padding-right:10px;"></i>-->
+            <p>
+                {{ person.name }}
+                <span style="display:block; text-transform:none; font-size:9pt; color:#808080">
+                    <i class="fa fa-envelope-o"></i>&nbsp;daniyeladigun@yahoo.com&nbsp;|&nbsp;Sales Person
+                </span>
+            </p>
+            <md-icon ng-click="doSecondaryAction($event)" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}">
+                <i class="fa fa-pencil"></i>
+            </md-icon>
+        </md-list-item>
+    </md-list>
+
+
+</div>
+
+<!-- Modal Trigger -->
+<!-- Modal Structure -->
+<div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content" style="padding-left:10%; padding-right:10%; text-align:center;">
+        <span>What action would you like to take on Daniel Jenkins?</span>
+        <p>
+            <md-button class="md-raised " style="background:red; color:white;">Fire</md-button>
+            <md-button class="md-raised md-warn">Suspend</md-button>
+            <md-button class="md-raised" style="background:blue; color:white;">Change records</md-button>
+
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a class="btn modal-action modal-close waves-effect waves-green btn-flat ">Done</a>
+    </div>
+</div>
+
+<div id="modal2" class="modal bottom-sheet">
+    <div class="modal-content" style="padding-left:10%; padding-right:10%; text-align:center;">
+        <span>Add new staff</span>
+        <p>
+            <md-button class="md-raised " style="background:red; color:white;">Fire</md-button>
+            <md-button class="md-raised md-warn">Suspend</md-button>
+            <md-button class="md-raised" style="background:blue; color:white;">Change records</md-button>
+
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat ">Save</a>
+    </div>
 </div>

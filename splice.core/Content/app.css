@@ -106,11 +106,16 @@ md-content {
 
 .header {
     color: #808080;
-    padding-top:1.5em !important;
-    padding-left:2em !important;
+    padding-top: 1.5em !important;
+    padding-left: 2em !important;
 }
 
     .header i {
         color: #9c27b0;
-        margin-right:0.5em;
+        margin-right: 0.5em;
     }
+
+.salesperson-list md-list md-list-item md-icon  i {
+    color:green !important;
+    font-size:14pt;
+}

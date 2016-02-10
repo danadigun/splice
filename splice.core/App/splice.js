@@ -1,4 +1,4 @@
-﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer']);
+﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier']);
 
 splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 

@@ -112,3 +112,4 @@
 /// <reference path="angular-ui-router.min.js" />
 /// <reference path="../app/modules/dashboard/dashboard.js" />
 /// <reference path="../app/modules/customer/customer.js" />
+/// <reference path="../app/modules/cashier/cashier.js" />
