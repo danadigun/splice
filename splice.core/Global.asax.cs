@@ -17,7 +17,7 @@ namespace splice.core
             new AppHost().Init();
 
             //initialize and create tables with unit of work
-            new UnitOfWork(DataSource.sqlConnectionString);
+            //new UnitOfWork(DataSource.sqlConnectionString);
         }
 
     }
