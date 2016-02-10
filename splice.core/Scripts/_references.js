@@ -111,3 +111,4 @@
 /// <reference path="../content/materialize-v0.97.1/js/materialize.min.js" />
 /// <reference path="angular-ui-router.min.js" />
 /// <reference path="../app/modules/dashboard/dashboard.js" />
+/// <reference path="../app/modules/customer/customer.js" />
