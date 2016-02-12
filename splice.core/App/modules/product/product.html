@@ -1,14 +1,15 @@
-﻿<div>
+﻿<div ng-controller="ProductController" ng-cloak>
     <div class="card card-header">
         <div class="card-content">
             <div class="card-title" style="color:#727272">
-                <i class="fa fa-product-hunt" style="padding-right:10px; color:#0094ff; font-size:30px;"></i>
-                Manage Products
-                <a title="Add new product" class="btn btn-floating btn-large waves-effect waves-light" style="float:right; background:#1976D2;">
-                    <i class="material-icons">
-                        <i class="fa fa-plus secondary-text-color"></i>
-                    </i>
-                </a>
+                <!--<i class="fa fa-product-hunt" style="padding-right:10px; color:#0094ff; font-size:30px;"></i>-->
+                Products
+                <button ng-click="DisplayManageProduct()" title="Add new product" class="btn  btn-default waves-effect waves-light" style="float:right; background:#1976D2; font-size:10pt;">
+                    Manage stock
+                </button>
+                <button ng-click="DisplayManageProduct()" title="Add new product" class="btn  btn-default waves-effect waves-light" style="float:right; background:green; margin-right:10px; font-size:10pt;">
+                    + Add new product
+                </button>
             </div>
         </div>
     </div>
@@ -16,9 +17,9 @@
 
     <div class="product-main">
         <div class="product-main-sub">
-            <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+            <md-content layout-gt-sm="row" layout-padding>
                 <md-input-container class="md-block" flex-gt-xs>
-                    <label><i class="fa fa-product-hunt" style="padding-right:10px; color:#0094ff; font-size:20px;"></i>Product name</label>
+                    <label><i class="fa fa-shopping-basket" style="padding-right:10px; color:#0094ff; font-size:20px;"></i>Product name</label>
                     <input ng-model="user.title">
                 </md-input-container>
 
@@ -29,6 +30,7 @@
                         <!--<md-option ng-repeat="state in states" value="{{state.abbrev}}">
                             {{state.abbrev}}
                         </md-option>-->
+
                         <md-option value="1">
                             Shoes
                         </md-option>
@@ -38,96 +40,133 @@
                     </md-select>
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
-                    <md-button class="md-raised md-primary"> <i class="fa fa-search"></i> </md-button>
+                    <md-button class="md-fab md-mini md-primary"> <i class="fa fa-search"></i> </md-button>
                 </md-input-container>
             </md-content>
         </div>
-        <div class="product-listing">
-            <table class="highlight centered">
-                <thead>
-                    <tr>
-                        <th data-field="id">Title</th>
-                        <th data-field="name">variants</th>
-                        <th data-field="stock">Stock</th>
-                        <th data-field="price">Price</th>
-                        <th data-field="action">Action</th>
-                    </tr>
-                </thead>
+        <md-content style="width:75%; margin-left:auto; margin-right:auto">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Product Listings">
+                    <md-content class="product-listing">
+                        <table class="highlight centered">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Title</th>
+                                    <th data-field="name">variants</th>
+                                    <th data-field="stock">Stock</th>
+                                    <th data-field="price">Price</th>
+                                    <th data-field="action">Action</th>
+                                </tr>
+                            </thead>
 
-                <tbody>
-                    <tr>
-                        <td>Oxford Shoe</td>
-                        <td>2</td>
-                        <td>23</td>
-                        <td>N24,678</td>
-                        <td>
-                            <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#ff6a00;">
-                                <i class="material-icons">
-                                    <i class="fa fa-cart-plus "></i>
-                                </i>
-                            </a>
-                            <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#ff6a00;">
-                                <i class="material-icons">
-                                    <i class="fa fa-edit"></i>
-                                </i>
-                            </a>
-                            <a title="delete this product" class="btn btn-floating  waves-effect waves-light" style="background:#ff0000">
-                                <i class="material-icons">
-                                    <i class="fa fa-remove"></i>
-                                </i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Oxford Shoe</td>
-                        <td>2</td>
-                        <td>23</td>
-                        <td>N24,678</td>
-                        <td>
-                            <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#ff6a00;">
-                                <i class="material-icons">
-                                    <i class="fa fa-cart-plus "></i>
-                                </i>
-                            </a>
-                            <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#ff6a00;">
-                                <i class="material-icons">
-                                    <i class="fa fa-edit"></i>
-                                </i>
-                            </a>
-                            <a title="remove this product" class="btn btn-floating  waves-effect waves-light" style="background:#ff0000">
-                                <i class="material-icons">
-                                    <i class="fa fa-remove"></i>
-                                </i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Oxford Shoe</td>
-                        <td>2</td>
-                        <td>23</td>
-                        <td>N24,678</td>
-                        <td>
-                            <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#ff6a00;">
-                                <i class="material-icons">
-                                    <i class="fa fa-cart-plus "></i>
-                                </i>
-                            </a>
-                            <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#ff6a00;">
-                                <i class="material-icons">
-                                    <i class="fa fa-edit"></i>
-                                </i>
-                            </a>
-                            <a title="remove this product" class="btn btn-floating  waves-effect waves-light" style="background:#ff0000">
-                                <i class="material-icons">
-                                    <i class="fa fa-remove"></i>
-                                </i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                            <tbody>
+                                <tr>
+                                    <td>Oxford Shoe</td>
+                                    <td>2</td>
+                                    <td>23</td>
+                                    <td>N24,678</td>
+                                    <td>
+                                        <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#808080;">
+                                            <i style="font-size:10pt;" class="fa fa-shopping-basket "></i>
+                                        </a>
+                                        <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080;">
+
+                                            <i style="font-size:11pt;" class="fa fa-edit"></i>
+
+                                        </a>
+                                        <a title="delete this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080">
+
+                                            <i style="font-size:11pt;" class="fa fa-trash"></i>
+
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Oxford Shoe</td>
+                                    <td>2</td>
+                                    <td>23</td>
+                                    <td>N24,678</td>
+                                    <td>
+                                        <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#808080;">
+                                            <i style="font-size:10pt;" class="fa fa-shopping-basket "></i>
+                                        </a>
+                                        <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080;">
+
+                                            <i style="font-size:11pt;" class="fa fa-edit"></i>
+
+                                        </a>
+                                        <a title="delete this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080">
+
+                                            <i style="font-size:11pt;" class="fa fa-trash"></i>
+
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Oxford Shoe</td>
+                                    <td>2</td>
+                                    <td>23</td>
+                                    <td>N24,678</td>
+                                    <td>
+                                        <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#808080;">
+                                            <i style="font-size:10pt;" class="fa fa-shopping-basket "></i>
+                                        </a>
+                                        <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080;">
+
+                                            <i style="font-size:11pt;" class="fa fa-edit"></i>
+
+                                        </a>
+                                        <a title="delete this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080">
+
+                                            <i style="font-size:11pt;" class="fa fa-trash"></i>
+
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Stock Listings">
+                    <md-content class="product-listing">
+                        <md-list>
+                            <md-list-item>
+                                <p style="text-align:center;">
+                                    <md-button title="Add and remove items from stock" class="list-button" style="color:#0094ff; text-decoration:none !important;">
+                                        <i style="color:#0094ff; margin-right:10px;" class="fa fa-th"></i>December 14, 2015 Stock <span style="float:right"><b>245 items</b></span>
+
+                                    </md-button>
+                                </p>
+                            </md-list-item>
+                            <md-list-item>
+                                <p style="text-align:center;">
+                                    <md-button class="list-button" style="color:#0094ff; text-decoration:none !important;">
+                                        <i style="color:#0094ff; margin-right:10px;" class="fa fa-th"></i>December 24, 2015 Stock  <span style="float:right"><b>22 items</b></span>
+                                    </md-button>
+                                </p>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
     </div>
 
 
+</div>
+
+<!-- Modal Trigger for add-new -producr -->
+
+<div id="modal-add-product" class="modal bottom-sheet">
+    <div class="modal-content" style="padding-left:10%; padding-right:10%; text-align:center;">
+        <span>What action would you like to take on your store?</span>
+        <p class="action">
+            <md-button class="md-raised " style="background:#879f4c; color:white;">Create new stock with products</md-button>
+            <md-button class="md-raised md-warn">View Existing stock with products</md-button>
+
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a class="btn modal-action modal-close waves-effect waves-green btn-flat ">Done</a>
+    </div>
 </div>

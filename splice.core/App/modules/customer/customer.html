@@ -1,26 +1,12 @@
-﻿<div class="CustomerController">
-    <!--<div class="card card-header">
-        <div class="card-content">
-            <div class="card-title">
-                <span class="md-display-1 header">
-                    <i class="fa fa-user"></i>&nbsp;Customers
-
-                    <md-button style="float:right" flex="50" class="md-primary md-raised" ng-click="showGridBottomSheet()">+ Add new customer</md-button>
-
-                </span>
-
-            </div>
-        </div>
-    </div>-->
-    <div class="row search-row">
+﻿<div class="CustomerController" style="width:75%; margin-left:auto; margin-right:auto;">
+    
+    <md-subheader class="md-no-sticky header " style="border-bottom:3px solid #9c27b0">
         <div class="row header" style="padding-right:50px;">
             <span class="md-headline ">
                 <i class="fa fa-user"></i>&nbsp;Customers
             </span>
-
-            <md-button style="float:right; font-size:10pt;" class="md-primary md-raised" ng-click="showGridBottomSheet()">+ Export customer data</md-button>
-            <md-button style="float:right; font-size:10pt; background:#9c27b0" class="md-primary md-raised" ng-click="showGridBottomSheet()">+ Add new customer</md-button>
-
+           <!-- <md-button style="float:right; font-size:10pt;" class="md-primary md-raised" ng-click="showGridBottomSheet()">+ Export customer data</md-button>-->
+            <button class="btn waves-effect waves-light " style="background:#9c27b0; float:right">+ add new customer</button>
 
         </div>
         <div class="row search-product">
@@ -32,10 +18,10 @@
                     <i class="fa fa-search"></i>
                 </md-icon>
                 <input ng-model="user.name" type="text" style="text-align:center;">
-                <button class="btn waves-effect waves-light btn-floating" style="background:#9c27b0">+</button>
+                <button class="btn  waves-effect waves-light btn-floating" style="background:#808080; color:black; " ><i class="fa fa-search" style="font-size:7pt;"></i></button>
             </md-input-container>
         </div>
 
-    </div>
+    </md-subheader>
 </div>
 

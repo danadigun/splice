@@ -1,4 +1,12 @@
-﻿md-list-item .md-button {
+﻿body{
+    font-family:'Segoe UI';
+}
+
+button{
+    text-transform:none !important;
+    font-weight:normal;
+}
+md-list-item .md-button {
     padding: 0 6px 0 6px;
     /*margin: 6px 8px 6px 8px;*/
     min-width: 100%;
@@ -55,6 +63,7 @@ md-content {
 
 .product-listing {
     padding: 20px;
+    background:white;
 }
 
 #chartdiv {
@@ -118,4 +127,10 @@ md-content {
 .salesperson-list md-list md-list-item md-icon  i {
     color:green !important;
     font-size:14pt;
+}
+
+.action button{
+    padding:10px;
+    padding-right:30px;
+    padding-left:30px;
 }

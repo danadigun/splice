@@ -113,3 +113,4 @@
 /// <reference path="../app/modules/dashboard/dashboard.js" />
 /// <reference path="../app/modules/customer/customer.js" />
 /// <reference path="../app/modules/cashier/cashier.js" />
+/// <reference path="../app/modules/product/product.js" />
