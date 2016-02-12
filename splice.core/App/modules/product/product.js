@@ -10,7 +10,7 @@ product.config(function ($urlRouterProvider, $stateProvider) {
 
             },
             url: '/stock/create'
-    }).state('AddProduct',
+        }).state('AddProduct',
         {
             views: {
                 'index': {
@@ -49,23 +49,31 @@ product.controller('ProductController', function ($scope, $http) {
     $scope.updateProduct = function (product) {
         //TODO: Update Product
     }
-   
+
     $scope.addItemToStock = function (product) {
         //TODO: add item to stock
     }
 });
 
-product.controller('ManageStockController', function ($scope, $http, $state) {
-    $scope.step = "Step 1: Create Stock";  
+product.controller('ManageStockController', function ($scope, $http, $state, $mdToast) {
+    $scope.step = "Step 1: Create Stock";
+    $scope.date = "";
     $('#add-items').hide();
-   
+
     $scope.showCreateStock = function () {
         $('#modal-add-product').closeModal();
         $state.go('CreateStock');
     }
     $scope.createStock = function (stock) {
         $scope.step = "Step 2: Add Items to stock";
-      
+        $mdToast.show(
+           $mdToast.simple()
+             .textContent('Stock has successfully been created')
+             .position('top right')
+             .hideDelay(3000)
+        );
+        $scope.date = moment($scope.stock.dateCreated).format("dddd, MMMM Do YYYY, h:mm:ss a");
+
         $('#add-items').fadeIn();
         $('#create-stock').hide();
     }
