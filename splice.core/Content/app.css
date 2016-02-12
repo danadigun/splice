@@ -60,7 +60,11 @@ md-content {
         margin-right: auto;
         padding-left: 120px;
     }
-
+@media(max-width:379px){
+    .product-main-sub md-content{
+        padding-left:0;
+    }
+}
 .product-listing {
     padding: 20px;
     background:white;

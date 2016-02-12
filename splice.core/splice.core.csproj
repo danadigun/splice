@@ -89,10 +89,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\jDatePicker.js" />
     <Content Include="App\modules\cashier\cashier.js" />
     <Content Include="App\modules\cashier\tabDialog.tmpl.html" />
     <Content Include="App\modules\customer\bottom-sheet-grid-template.html" />
     <Content Include="App\modules\customer\customer.js" />
+    <Content Include="App\modules\product\createStock.html" />
     <Content Include="App\modules\product\product.js" />
     <Content Include="img\thumbnail.jpg" />
     <Content Include="packages.config" />

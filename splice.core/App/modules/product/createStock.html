@@ -1,0 +1,39 @@
+﻿<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ManageStockController">
+    <md-subheader style="border-bottom:3px solid #9c27b0;">
+        <span class="md-headline">
+            <i class="fa fa-shopping-basket" style="margin-right:20px;"></i>{{step}}
+        </span>
+        <button onclick="window.history.back();" class="btn waves-effect waves-light btn-floating" style="background:#9c27b0; float:right;">
+            x
+        </button>
+    </md-subheader>
+    <div id="create-stock" style="background:white; padding:30px; justify-content:center; padding-bottom:50px;">
+        <div layout-gt-xs="row">
+            <md-input-container flex-gt-xs>
+                <label><i class="fa fa-shopping-basket"></i>&nbsp;&nbsp;Stock Description e.g <i>Deccember 2, 2015 stock</i></label>
+                <input ng-model="stock.title">
+            </md-input-container>
+
+
+        </div>
+        <div layout-gt-xs="row">
+            <i class="fa fa-calendar-check-o" style="color:#808080"></i><j-md-datepicker ng-model="stock.dateCreated" placeholder="Date Stock was recieved" orientation="landscape" style="margin-top:-2em;"></j-md-datepicker>
+        </div>
+        <div>
+            <span style="float:right; display:block;">
+                <button class="btn btn-primary" ng-click="createStock()"> + create new stock  </button>
+            </span>
+        </div>
+    </div>
+
+    <!--UI to add items-->
+    <div id="add-items" style="background:white; padding:30px; justify-content:center; padding-bottom:50px;">
+        <div style="width:100%; padding:20px;margin-top:-2em; background:#9c27b0; color:white">
+           <i class="fa fa-check" style="margin-right:2em; "></i><i class="fa fa-shopping-basket"></i>&nbsp;{{stock.title}}
+            <span style="display:block; padding-top:2pt; padding-left:3em;">
+                <i class="fa fa-calendar-check-o"></i>&nbsp;{{stock.dateCreated}}
+            </span>
+        </div>
+        <h1>Start adding items</h1>
+    </div>
+</md-content>

@@ -1,5 +1,37 @@
 ﻿var product = angular.module('splice.product', []);
 
+product.config(function ($urlRouterProvider, $stateProvider) {
+    $stateProvider.state('CreateStock',
+        {
+            views: {
+                'index': {
+                    templateUrl: '/App/modules/product/createStock.html'
+                }
+
+            },
+            url: '/stock/create'
+    }).state('AddProduct',
+        {
+            views: {
+                'index': {
+                    templateUrl: ''
+                }
+
+            },
+            url: '/product/add'
+        })
+    .state('ViewStock',
+        {
+            views: {
+                'index': {
+                    templateUrl: ''
+                }
+
+            },
+            url: '/stock/view'
+        })
+});
+
 product.controller('ProductController', function ($scope, $http) {
 
     $scope.DisplayManageProduct = function () {
@@ -16,5 +48,29 @@ product.controller('ProductController', function ($scope, $http) {
 
     $scope.updateProduct = function (product) {
         //TODO: Update Product
+    }
+   
+    $scope.addItemToStock = function (product) {
+        //TODO: add item to stock
+    }
+});
+
+product.controller('ManageStockController', function ($scope, $http, $state) {
+    $scope.step = "Step 1: Create Stock";  
+    $('#add-items').hide();
+   
+    $scope.showCreateStock = function () {
+        $('#modal-add-product').closeModal();
+        $state.go('CreateStock');
+    }
+    $scope.createStock = function (stock) {
+        $scope.step = "Step 2: Add Items to stock";
+      
+        $('#add-items').fadeIn();
+        $('#create-stock').hide();
+    }
+
+    $scope.showViewStock = function () {
+
     }
 });

@@ -16,35 +16,36 @@
 
 
     <div class="product-main">
-        <div class="product-main-sub">
-            <md-content layout-gt-sm="row" layout-padding>
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label><i class="fa fa-shopping-basket" style="padding-right:10px; color:#0094ff; font-size:20px;"></i>Product name</label>
-                    <input ng-model="user.title">
-                </md-input-container>
+    
+        <md-content >
+            <div class="product-main-sub">
+                <md-content layout-gt-sm="row" layout-padding>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label><i class="fa fa-shopping-basket" style="padding-right:10px; color:#0094ff; font-size:20px;"></i>Find product</label>
+                        <input ng-model="user.title">
+                    </md-input-container>
 
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label><i class="fa fa-object-ungroup" style="padding-right:10px; color:#0094ff; font-size:20px;"></i>Category</label>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label><i class="fa fa-object-ungroup" style="padding-right:10px; color:#0094ff; font-size:20px;"></i>Category</label>
 
-                    <md-select ng-model="user.state">
-                        <!--<md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                            {{state.abbrev}}
-                        </md-option>-->
+                        <md-select ng-model="user.state">
+                            <!--<md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                        {{state.abbrev}}
+                    </md-option>-->
 
-                        <md-option value="1">
-                            Shoes
-                        </md-option>
-                        <md-option value="2">
-                            Bags
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                    <md-button class="md-fab md-mini md-primary"> <i class="fa fa-search"></i> </md-button>
-                </md-input-container>
-            </md-content>
-        </div>
-        <md-content style="width:75%; margin-left:auto; margin-right:auto">
+                            <md-option value="1">
+                                Shoes
+                            </md-option>
+                            <md-option value="2">
+                                Bags
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-button class="md-fab md-mini md-primary"> <i class="fa fa-search"></i> </md-button>
+                    </md-input-container>
+                </md-content>
+            </div>
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="Product Listings">
                     <md-content class="product-listing">
