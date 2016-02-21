@@ -19,11 +19,11 @@ namespace splice.core.Repository.queries
             _stock = new Repository<Stock>(db);
             _stockItems = new Repository<StockItems>(db);
         }
-        public void CreateStock(data.POCOs.Stock stock)
+        public int CreateStock(data.POCOs.Stock stock)
         {
-            _stock.Save(stock);
+            return _stock.Save(stock);
         }
-
+       
         public void AddItemsToStock(int stockId, List<StockItems> items)
         {
             var stock = _stock.GetById(stockId);
@@ -35,6 +35,18 @@ namespace splice.core.Repository.queries
                     _stockItems.Save(item);
                 }
             }
+        }
+
+        public void AddItemToStock(int stockId, StockItems item)
+        {
+            var stock = _stock.GetById(stockId);
+            if (stock != null)
+            {
+                item.StockId = stockId;
+                item.dateCreated = DateTime.Now;
+                _stockItems.Save(item);
+            }
+            
         }
         public object GetStockWithItems(int stockId)
         {
@@ -51,7 +63,10 @@ namespace splice.core.Repository.queries
 
             return stockWithItems;
         }
-
+        public object GetAllStock()
+        {
+            return _stock.GetAll();
+        }
         public bool removeStock(int stockId)
         {
             var stock = _stock.GetById(stockId);

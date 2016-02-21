@@ -9,7 +9,7 @@ namespace splice.core.Repository.contracts
 {
     public interface IStock
     {
-        void CreateStock(Stock stock);
+        int CreateStock(Stock stock);
         void AddItemsToStock(int stockId, List<StockItems> items);
         object GetStockWithItems(int stockId);
         bool removeStock(int stockId);

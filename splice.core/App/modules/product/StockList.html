@@ -1,49 +1,44 @@
-﻿<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ManageStockController">
+﻿<!--<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ManageStockController">
     <md-subheader style="border-bottom:3px solid #9c27b0;">
         <span class="md-headline">
-            <i class="fa fa-shopping-basket" style="margin-right:20px;"></i>{{step}}
+            <i class="fa fa-shopping-basket" style="margin-right:20px;"></i>{{titleList}}
         </span>
 
-        <button onclick="window.history.back();" class="btn waves-effect waves-light btn-floating" style="background:#9c27b0; float:right;">
+        <button ui-sref="dashboard" class="btn waves-effect waves-light btn-floating" style="background:#9c27b0; float:right;">
             x
             <md-tooltip md-direction="right">
                 Close and return to dashboard
             </md-tooltip>
         </button>
-        
-            <button ng-show="hasList" ng-click="showStockItems()" style="float:right; margin-right:1em; background:#9c27b0; font-size:10pt;" class="btn btn-sm waves-effect view-list">
-                view list
-                <md-tooltip md-direction="left">
-                    <span>
-                        <i class="fa fa-check"></i>  View list of stock items
-                    </span>
-                </md-tooltip>
-            </button>
-       
-        
-        
+
+        <button ng-show="hasList" ng-click="showStockItems()" style="float:right; margin-right:1em; background:#9c27b0; font-size:10pt;" class="btn btn-sm waves-effect view-list">
+            view list
+            <md-tooltip md-direction="left">
+                <span>
+                    <i class="fa fa-check"></i>  View list of stock items
+                </span>
+            </md-tooltip>
+        </button>
+
+
+
     </md-subheader>
 
-    <!--UI To create stock-->
-    <form ng-submit="createStock()" id="create-stock" style="background:white; padding:30px; justify-content:center; padding-bottom:50px;">
-        <div layout-gt-xs="row">
-            <md-input-container flex-gt-xs>
-                <label><i class="fa fa-shopping-basket"></i>&nbsp;&nbsp;Stock Description e.g <i>Deccember 2, 2015 stock</i></label>
-                <input required ng-model="stock.title">
-            </md-input-container>
+    <!--UI To list stock-->
+    <div style="padding:20px; background:white;">
+        <md-list ng-controller="ListCtrl" ng-cloak>
+            <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
+            <md-divider></md-divider>
 
+            <md-list-item ng-repeat="item in stock">
+                <p> {{ item.title }} </p>
+               <!-- <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>-->
+                Items: {{showStockItemsNumber(item.Id)}}
+            </md-list-item>
+            
+        </md-list>
 
-        </div>
-        <div layout-gt-xs="row">
-            <i class="fa fa-calendar-check-o" style="color:#808080"></i><j-md-datepicker required ng-model="stock.dateCreated" placeholder="Date Stock was recieved" orientation="landscape" style="margin-top:-2em;"></j-md-datepicker>
-        </div>
-        <div>
-            <span style="float:right; display:block;">
-                <button class="btn btn-primary"> + create new stock  </button>
-                <md-progress-circular ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
-            </span>
-        </div>
-    </form>
+    </div>
 
     <!--UI to add items-->
     <div id="add-items" style="background:white; padding:30px; justify-content:center; padding-bottom:50px;">
@@ -80,13 +75,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    
+
                     <div class="input-field col s12">
                         <input type="submit" class="btn btn-sm waves-effect" value="+ add ">
 
                     </div>
-                    
-            
+
+
                 </div>
             </form>
 
@@ -98,7 +93,7 @@
             <button class="btn  btn-floating waves-effect" ng-click="showAddItems()">
                 +
                 <md-tooltip md-direction="left">
-                   Add new item
+                    Add new item
                 </md-tooltip>
             </button>
         </span>
@@ -127,7 +122,7 @@
 
             <tbody>
                 <md-progress-circular style="margin-left:3em;" ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
-                <tr ng-repeat="item in addedItems.items | startFrom:currentPage*pageSize | limitTo:pageSize" >
+                <tr ng-repeat="item in addedItems.items | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <td>{{$index + 1}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.costPrice}}</td>
@@ -141,5 +136,5 @@
 
             </tbody>
         </table>
-       </div>
-</md-content>
+    </div>
+</md-content>-->

@@ -70,8 +70,8 @@ namespace splice.core.Repository.data
                 StockItems item = new StockItems
                 {
                     name = "Yams",
-                    price = 23.56M,
-                    qty = 12,
+                    sellingPrice = 23.56M,
+                    quantity = 12,
                     StockId = db.Select<Stock>().FirstOrDefault().Id,
                     dateCreated = DateTime.Now,                    
                 };

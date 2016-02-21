@@ -2,6 +2,7 @@
 using splice.core.Repository.data.DataSource;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -17,7 +18,7 @@ namespace splice.core
             new AppHost().Init();
 
             //initialize and create tables with unit of work
-            //new UnitOfWork(DataSource.sqlConnectionString);
+            new UnitOfWork(ConfigurationManager.ConnectionStrings["SpliceDb"].ConnectionString);
         }
 
     }

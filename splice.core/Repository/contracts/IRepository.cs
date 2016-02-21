@@ -24,7 +24,7 @@ namespace splice.core.Repository.contracts
         /// Inserts or updates instance
         /// </summary>
        
-       bool Save(T o);
+       int Save(T o);
         /// <summary>
         /// Deletes element with specified id
         /// </summary>

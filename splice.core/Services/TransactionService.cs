@@ -38,7 +38,7 @@ namespace splice.core.Services
             }
         }
 
-        public void post(TransactionDTO dto)
+        public object post(TransactionDTO dto)
         {
             using (var uow = new UnitOfWork(DataSource.sqlConnectionString))
             {
@@ -47,13 +47,16 @@ namespace splice.core.Services
                 if (dto.transaction != null)
                 {
                     _repo.CreateTransaction(dto.transaction);
+                    return true;
                 }
 
                 //AddItemsToTransaction
                 if (dto.transactionId.HasValue && dto.items != null)
                 {
                     _repo.AddItemsToTransaction(dto.transactionId.Value, dto.items);
+                    return true;
                 }
+                return false;
             }
        
         }

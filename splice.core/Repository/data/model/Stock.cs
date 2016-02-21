@@ -22,8 +22,9 @@ namespace splice.core.Repository.data.POCOs
         public int StockId { get; set; }
         public string serial { get; set; }
         public string name { get; set; }
-        public decimal price { get; set; }
-        public int qty { get; set; }
+        public decimal costPrice { get; set; }
+        public decimal sellingPrice { get; set; }
+        public int quantity { get; set; }
         public DateTime dateCreated { get; set; }
     }
 

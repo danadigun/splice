@@ -11,7 +11,7 @@ namespace splice.core.Repository.contracts
     {
        
         object get(DTO dto);
-        void post(DTO dto);
+        object post(DTO dto);
         void put(DTO dto);
         object delete(DTO dto);
     }

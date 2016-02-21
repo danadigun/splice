@@ -44,10 +44,10 @@ namespace splice.core.Repository
         }
 
 
-        public bool Save(T o)
+        public int Save(T o)
         {
             db.Save<T>(o);
-            return true;
+            return Convert.ToInt32(db.GetLastInsertId()); //returns the inserted Id;
         }
 
         public void Delete(int id)

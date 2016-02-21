@@ -96,6 +96,7 @@
     <Content Include="App\modules\customer\customer.js" />
     <Content Include="App\modules\product\createStock.html" />
     <Content Include="App\modules\product\product.js" />
+    <Content Include="App\modules\product\StockList.html" />
     <Content Include="img\thumbnail.jpg" />
     <Content Include="packages.config" />
     <Content Include="Scripts\version.json" />
@@ -111,6 +112,8 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="App\modules\product\product.json" />
+    <Content Include="product.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1561,6 +1564,7 @@
     <Compile Include="Repository\queries\StockRepository.cs" />
     <Compile Include="Repository\queries\TransactionRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\StockService.cs" />
     <Compile Include="Services\TransactionService.cs" />
     <Compile Include="SpliceServices.cs" />
