@@ -1,0 +1,18 @@
+﻿<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ViewStockController">
+
+    <md-subheader style="border-bottom:3px solid #9c27b0;">
+        <span class="md-headline">
+            <i class="fa fa-check" style="margin-right:20px;"></i>&nbsp;Stock has successfully been removed!
+        </span>
+
+        <button onclick="window.history.back();" class="btn waves-effect waves-light btn-floating" style="background:#9c27b0; float:right;">
+            x
+            <md-tooltip md-direction="right">
+                Close and return to dashboard
+            </md-tooltip>
+        </button>
+    </md-subheader>
+    <p style="padding-top:20px; text-align:center; background:white;">
+        <button ui-sref="ViewStock" class="btn waves-effect waves-light " style="background:#9c27b0; font-size:9pt;">take me back to stock listings</button>
+    </p>
+</md-content>

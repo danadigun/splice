@@ -7,9 +7,9 @@
                 <button ng-click="DisplayManageProduct()" title="Add new product" class="btn  btn-default waves-effect waves-light" style="float:right; background:#1976D2; font-size:10pt;">
                     Manage stock
                 </button>
-                <button ng-click="DisplayManageProduct()" title="Add new product" class="btn  btn-default waves-effect waves-light" style="float:right; background:green; margin-right:10px; font-size:10pt;">
+                <!--<button ng-click="DisplayManageProduct()" title="Add new product" class="btn  btn-default waves-effect waves-light" style="float:right; background:green; margin-right:10px; font-size:10pt;">
                     + Add new product
-                </button>
+                </button>-->
             </div>
         </div>
     </div>
@@ -158,13 +158,12 @@
 
 <!-- Modal Trigger for add-new -producr -->
 
-<div id="modal-add-product" class="modal bottom-sheet">
+<div id="modal-add-product" class="modal bottom-sheet" ng-controller="ManageStockController">
     <div class="modal-content" style="padding-left:10%; padding-right:10%; text-align:center;">
         <span>What action would you like to take on your store?</span>
         <p class="action">
-            <md-button class="md-raised " style="background:#879f4c; color:white;">Create new stock with products</md-button>
-            <md-button class="md-raised md-warn">View Existing stock with products</md-button>
-
+            <md-button class="md-raised " style="background:#879f4c; color:white;" ng-click="showCreateStock()">Create new stock with products</md-button>
+            <md-button ng-controller="ViewStockController" class="md-raised md-warn" ng-click="showExistingStock()">View & update existing stock with products</md-button>
         </p>
     </div>
     <div class="modal-footer">

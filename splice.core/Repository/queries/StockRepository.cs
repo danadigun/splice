@@ -63,9 +63,26 @@ namespace splice.core.Repository.queries
 
             return stockWithItems;
         }
+        public object GetAllStockWithItems()
+        {
+            var allStock = new List<object>();
+            var stock = _stock.GetAll();
+
+            foreach (var item in stock)
+            {
+                allStock.Add(this.GetStockWithItems(item.Id));
+            }
+            return allStock;
+        }
         public object GetAllStock()
         {
             return _stock.GetAll();
+        }
+
+        public object GetAllProducts()
+        {
+            var products = _stockItems.GetAll();
+            return products;
         }
         public bool removeStock(int stockId)
         {
@@ -73,7 +90,7 @@ namespace splice.core.Repository.queries
             if (stock != null)
             {
                 _stock.Delete(stockId);
-                _stockItems.Delete(x => x.StockId == stockId);
+                _stockItems.Delete(x => x.StockId == stockId);                
                 return true;
             }
             return false;

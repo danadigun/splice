@@ -32,7 +32,7 @@ namespace splice.core.Services
                 {
                     return _repo.GetStockWithItems(dto.stockId.Value);
                 }
-                return _repo.GetAllStock();
+                return _repo.GetAllStockWithItems();
             }
         }
 

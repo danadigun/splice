@@ -115,5 +115,5 @@
 /// <reference path="../app/modules/cashier/cashier.js" />
 /// <reference path="../app/modules/product/product.js" />
 /// <reference path="../app/jdatepicker.js" />
-/// <reference path="moment-with-locales.min.js" />
-/// <reference path="moment.min.js" />
+/// <reference path="../app/modules/product/viewstock.js" />
+/// <reference path="../app/modules/sell/sell.js" />

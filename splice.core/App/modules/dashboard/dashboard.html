@@ -88,7 +88,7 @@
         <span>What action would you like to take on your store?</span>
         <p class="action">
             <md-button class="md-raised " style="background:#879f4c; color:white;" ng-click="showCreateStock()">Create new stock with products</md-button>
-            <md-button class="md-raised md-warn" ng-click="showExistingStock()">View Existing stock with products</md-button>
+            <md-button ng-controller="ViewStockController" class="md-raised md-warn" ng-click="showExistingStock()">View & update existing stock with products</md-button>
         </p>
     </div>
     <div class="modal-footer">

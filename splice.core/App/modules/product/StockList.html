@@ -1,7 +1,8 @@
-﻿<!--<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ManageStockController">
+﻿<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ViewStockController">
     <md-subheader style="border-bottom:3px solid #9c27b0;">
         <span class="md-headline">
             <i class="fa fa-shopping-basket" style="margin-right:20px;"></i>{{titleList}}
+            <md-progress-circular style="margin-top:-2em; margin-left:12em;" ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
         </span>
 
         <button ui-sref="dashboard" class="btn waves-effect waves-light btn-floating" style="background:#9c27b0; float:right;">
@@ -26,115 +27,28 @@
 
     <!--UI To list stock-->
     <div style="padding:20px; background:white;">
-        <md-list ng-controller="ListCtrl" ng-cloak>
-            <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
-            <md-divider></md-divider>
 
-            <md-list-item ng-repeat="item in stock">
-                <p> {{ item.title }} </p>
-               <!-- <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>-->
-                Items: {{showStockItemsNumber(item.Id)}}
+        <md-list class="stock-list">
+            <span style="display:block; padding-bottom:2em; color:#9c27b0">
+                <button ui-sref="CreateStock" style="background:#9c27b0; font-size:9pt;" class="btn waves-effect">+ create stock with items!</button>
+                <b style="margin-left:2em;"><i class="fa fa-check"></i>&nbsp;Total Stock Created: </b><i style="color:#9c27b0; font-weight:bold;">{{stock.length}}</i>
+            </span>
+            <md-list-item ng-repeat="obj in stock " style="margin-bottom:1.5em;">
+                <md-button class="stocklist-button waves-effect waves-light" ui-sref="viewStockbyId({stockId: obj.stockId})">
+                    <p style="line-height:20pt;">
+                        <span style="font-size:16pt; display:block; text-transform:none; ">
+                            {{ obj.stockTitle }}
+                        </span>
+                        <span style="font-size:10pt; text-transform:none;">
+                            <i class="fa fa-shopping-bag"></i>&nbsp; No of Items: <b style="color:#9c27b0">{{obj.items.length}}</b><br />
+                            <i class="fa fa-calendar"></i>&nbsp;Date Created : <i>{{formateDate(obj.dateCreated)}}</i>
+                        </span>
+                    </p>
+                </md-button>
             </md-list-item>
-            
         </md-list>
 
     </div>
 
-    <!--UI to add items-->
-    <div id="add-items" style="background:white; padding:30px; justify-content:center; padding-bottom:50px;">
-        <div style="width:100%; padding:20px;margin-top:-2em; background:#9c27b0; color:white">
-            <i class="fa fa-check" style="margin-right:2em; "></i><i class="fa fa-truck"></i>&nbsp;{{stock.title}}
-            <span style="display:block; padding-top:2pt; padding-left:3em;">
-                <i class="fa fa-calendar-check-o"></i>&nbsp;{{date}}
-            </span>
-        </div>
-        <div class="row">
-            <form class="col s12" ng-submit="addItemToStock()">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input ng-model="product.category" required id="category" type="text" class="validate" />
-                        <label for="category"><i class="fa fa-shopping-basket"></i>&nbsp;Category</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input ng-model="product.name" required id="name" type="text" class="validate" />
-                        <label for="name"><i class="fa fa-product-hunt"></i>&nbsp;Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input required ng-model="product.costPrice" id="cost_price" type="text" class="validate" />
-                        <label for="cost_price">₦&nbsp;Cost Price</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input required ng-model="product.sellingPrice" id="selling_price" type="text" class="validate" />
-                        <label for="selling_price">₦&nbsp;Selling Price</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input ng-model="product.quantity" required id="qty" style="font-size:25pt; color:blue; text-align:center;" type="number" class="validate" />
-                        <label for="qty">Quantity</label>
-                    </div>
-                </div>
-                <div class="row">
 
-                    <div class="input-field col s12">
-                        <input type="submit" class="btn btn-sm waves-effect" value="+ add ">
-
-                    </div>
-
-
-                </div>
-            </form>
-
-        </div>
-    </div>
-    <!--UI to list items-->
-    <div id="table-list" style="padding-top:3em;">
-        <span style="float:left">
-            <button class="btn  btn-floating waves-effect" ng-click="showAddItems()">
-                +
-                <md-tooltip md-direction="left">
-                    Add new item
-                </md-tooltip>
-            </button>
-        </span>
-        <span style="float:right">
-
-            <button class="btn  btn-floating red" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-                <i class="fa fa-chevron-left"></i>
-            </button>
-            {{currentPage+1}}/{{numberOfPages()}}
-            <button class="btn  btn-floating red" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
-                <i class="fa fa-chevron-right"></i>
-            </button>
-
-        </span>
-        <table>
-            <thead>
-                <tr>
-                    <th data-field="id">S/N</th>
-                    <th data-field="name">Item Name</th>
-                    <th data-field="price">cost Price</th>
-                    <th data-field="price">selling Price</th>
-                    <th data-field="price">quantity</th>
-                    <th data-field="action">&nbsp;</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <md-progress-circular style="margin-left:3em;" ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
-                <tr ng-repeat="item in addedItems.items | startFrom:currentPage*pageSize | limitTo:pageSize">
-                    <td>{{$index + 1}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.costPrice}}</td>
-                    <td>{{item.sellingPrice}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>
-                        <button ng-click="removeProduct(item.Id)" class="btn waves-effect waves-light btn-floating" style="background:#808080; ">x</button>
-
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-</md-content>-->
+</md-content>

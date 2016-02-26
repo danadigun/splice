@@ -27,5 +27,13 @@ namespace splice.core.Services
                 return _repo.removeItemFromStock(request.id);
             }
         }
+
+        public object get(ProductDTO request)
+        {
+            using (var uow = new UnitOfWork(DataSource.sqlConnectionString))
+            {
+                return uow.stockRepo.GetAllProducts();
+            }
+        }
     }
 }

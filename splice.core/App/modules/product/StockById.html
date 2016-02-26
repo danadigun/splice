@@ -1,0 +1,109 @@
+﻿<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ViewStockController">
+   
+    <md-subheader style="border-bottom:3px solid #9c27b0;">
+        <span class="md-headline">
+            <i class="fa fa-shopping-basket" style="margin-right:20px;"></i>Stock: {{stockById.stockTitle}}
+        </span>
+
+        <button onclick="window.history.back();" class="btn waves-effect waves-light btn-floating" style="background:#9c27b0; float:right;">
+            x
+            <md-tooltip md-direction="right">
+                Close and return to dashboard
+            </md-tooltip>
+        </button>  
+    </md-subheader>
+    <span style="display:block; padding-top:1em;"><b><i class="fa fa-calendar"></i>&nbsp;Date Created: </b><i>{{formateDate(stockById.dateCreated)}}</i></span>
+    <md-progress-circular style="margin-top:-2em; float:right" ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
+
+    <!--UI to list items-->
+    <div id="table-list" style="padding-top:3em;">
+        <span style="float:left">
+            <button class="btn  waves-effect" style="background:#9c27b0; font-size:9pt;" ng-click="showAddItem()">
+                + add new product
+                <md-tooltip md-direction="left">
+                    Add new item
+                </md-tooltip>
+            </button>
+            <button class="btn  waves-effect" style="background:#e65100; font-size:9pt;" ng-click="removeStock()">
+                x delete stock & all items
+                <md-tooltip md-direction="left">
+                    Add new item
+                </md-tooltip>
+            </button>
+            <span style="color:#9c27b0; font-weight:bold; font-size:16pt; margin-left:3em;">{{stockById.items.length}} Item(s)</span>
+        </span>
+        <span style="float:right">
+
+            <button class="btn  btn-floating red" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            {{currentPage+1}}/{{numberOfPages()}}
+            <button class="btn  btn-floating red" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+
+        </span>
+
+        <!--UI to add product to stock-->
+        <form ng-show="isAddingItem" style="padding-top:50px; " >
+            <div style="background:whitesmoke; padding:20px; " class="md-whiteframe-z2 ">
+                <h5>+ Add new product</h5>
+                <div>
+                    <div class="input-field col s6">
+                        <input id="name" type="text" ng-model="product.name" required class="validate">
+                        <label for="name"><i class="fa fa-product-hunt"></i> Product name e.g <i>Oxford shoe</i></label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="costPrice" type="text" ng-model="product.costPrice" required class="validate">
+                        <label for="costPrice"><i class="fa fa-compress"></i> Cost Price [NGN] e.g 2,250</label>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="input-field col s6">
+                        <input id="sellingPrice" ng-model="product.sellingPrice" type="text" required class="validate">
+                        <label for="sellingPrice"><i class="fa fa-expand"></i> Selling Price[NGN] e.g. 2,550</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="quantity" type="text" ng-model="product.quantity" required class="validate">
+                        <label for="quantity"><i class="fa fa-th-large"></i> Quantity</label>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="btn waves-effect" style="background:#9c27b0; font-size:9pt; margin-right:1em;" ng-click="addProduct()">Save</button>
+                    <a style="cursor:pointer" ng-click="hideAddItem()">cancel</a>
+                </div>
+            </div>
+        </form>
+
+        <table style="margin-top:4em;">
+            <thead>
+                <tr>
+                    <th data-field="id">S/N</th>
+                    <th data-field="name">Item Name</th>
+                    <th data-field="price">cost Price</th>
+                    <th data-field="price">selling Price</th>
+                    <th data-field="price">quantity</th>
+                    <th data-field="action">&nbsp;</th>
+                </tr>
+            </thead>
+
+            <tbody>
+               
+                <tr ng-repeat="item in stockById.items | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td>{{$index + 1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.costPrice}}</td>
+                    <td>{{item.sellingPrice}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>
+                        <button ng-click="removeProduct(item.Id)" class="btn waves-effect waves-light btn-floating" style="background:#808080; ">x</button>
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</md-content>

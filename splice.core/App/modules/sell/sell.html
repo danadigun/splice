@@ -1,42 +1,108 @@
-﻿<div>
+﻿<div style="width:85%; margin-left:auto; margin-right:auto;" ng-controller="TransactionController">
 
     <div>
         <div class="row" style="padding-left:50px;">
             <div style="color:#727272">
                 <i class="fa fa-shopping-cart" style="padding-right:10px; color:#9c27b0; font-size:30px;"></i>
-                <span class="md-headline">Sell products</span>
-                <a ui-sref="product" title="Add new product" class="btn waves-effect waves-light" style="float:right; background:#9c27b0; font-size:11pt;">
-                    <i class="fa fa-product-hunt"></i> Manage products
-                </a>
-            </div>
-        </div>
-        <div class="row search-row">
-            <div class="col s7 search-product">
-                <md-input-container class="md-icon-float md-block ">
-                    <!-- Use floating label instead of placeholder -->
-                    <label>
-                        Search products
-                    </label>
-                    <md-icon>
-                        <i class="fa fa-search"></i>
-                    </md-icon>
-                    <input ng-model="user.name" type="text">
-                    <button class="btn waves-effect waves-light btn-floating" style="background:#9c27b0">+</button>
-                </md-input-container>
-            </div>
-            <div class="col s5 search-product">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Product Category</label>
-                    <md-select ng-model="user.state">
-                        <md-option>Options Selected</md-option>
-                        <md-option>Options Selected</md-option>
-                        <md-option>Options Selected</md-option>
-                        <md-option>Options Selected</md-option>
-                        <md-option>Options Selected</md-option>
+                <span class="md-headline">
+                    Sell products
 
-                    </md-select>
-                </md-input-container>
+                </span>
+                <span style="float:right; font-weight:bold; color:#808080; font-size:16pt; margin-right:5em;">
+                    Total stock :&nbsp;
+                    <b style="color:#9c27b0">{{shopItems.length;}}</b>
+                </span>
             </div>
+
+            <!--<a ng-controller="ProductController" ng-click="DisplayManageProduct()" title="Add new product" class="btn waves-effect waves-light" style="float:right; background:#9c27b0; font-size:11pt;">
+                <i class="fa fa-product-hunt"></i> Manage products
+            </a>-->
         </div>
+    </div>
+    <div class="row ">
+        <div class="col s12 search-product">
+            <md-input-container class="md-icon-float md-block " style="margin-left:-2em;">
+                <label>
+                    Search product to add and sell
+                </label>
+                <md-icon>
+                    <i class="fa fa-search"></i>
+                </md-icon>
+                <input ng-model="query" type="text">
+                <button class="btn waves-effect waves-light btn-floating" style="background:#9c27b0">+</button>
+            </md-input-container>
+        </div>
+        <div class="row">
+            <div class="col s7" style="padding-right:2em;">
+                <md-list class="stock-list">
+                    <md-progress-circular style="margin-top:-2em; margin-left:5em;" ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
+
+                    <md-list-item id="product_{{product.Id}}" ng-repeat="product in shopItems | filter:query | startFrom:currentPage*pageSize | limitTo:pageSize">
+                        <md-button class="stocklist-button waves-effect waves-light" ng-click="AddItemToTransaction(product)">
+                            <span style=" text-transform:none; margin-top:-10px;">
+                                <b style="color:#9c27b0">{{product.name}}</b>&nbsp; -
+
+                                <b style="color:#9c27b0; padding-left:10px;">₦{{product.sellingPrice}}[NGN]</b>
+                            </span>
+                        </md-button>
+                    </md-list-item>
+
+                </md-list>
+                <md-divider></md-divider>
+                <span style="float:left; display:block; margin-top:20px;">
+
+                    <button class="btn  btn-floating " style="background:#9c27b0" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <span style="padding-right:10px; padding-left:10px;">{{currentPage+1}}/{{numberOfPages()}}</span>
+                    <button class="btn  btn-floating" style="background:#9c27b0" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                        <i style="font-weight:lighter" class="fa fa-chevron-right"></i>
+                    </button>
+
+                </span>
+
+            </div>
+            <div class="col s5" style="padding-left:2em; background:white; padding-right:2em;padding-bottom:2em; padding-top:2em;">
+                <span>
+                    <b><i class="fa fa-credit-card-alt"></i>&nbsp;Transaction : {{transactionId}}</b><hr />
+                    <ul>
+                        <li ng-repeat="item in transactionItems">{{item.name}} - <b>{{item.price}}</b></li>
+                    </ul>
+                    <span style="display:block; padding:10px;">
+                        <span >Sub-total</span>&nbsp;&nbsp;<b>₦3,560.00</b>
+                    </span>
+                    <span style="display:block; padding:10px;">
+                        <span >Discount</span>&nbsp;&nbsp;<b>₦23.00</b>
+                    </span>
+                    <span style="display:block; padding:10px;">
+                        <span ><b>TOTAL</b></span><b style="color:blue; font-size:18pt;">&nbsp;&nbsp;₦{{getTransactionSum()}}</b>
+                    </span>
+
+                    <span style="display:block; padding-top:20px;">
+
+                        <button style="background:#879f4c; width:100%;  font-weight:lighter; margin-right:1em; " class="btn waves-effect">Checkout Total</button>
+                    </span>
+                </span>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Modal Trigger to manage stock -->
+
+<div id="modal-add-product" class="modal bottom-sheet" ng-controller="ManageStockController">
+    <div class="modal-content" style="padding-left:10%; padding-right:10%; text-align:center;">
+        <span>What action would you like to take on your store?</span>
+        <p class="action">
+            <md-button class="md-raised " style="background:#879f4c; color:white;" ng-click="showCreateStock()">Create new stock with products</md-button>
+            <md-button ng-controller="ViewStockController" class="md-raised md-warn" ng-click="showExistingStock()">View & update existing stock with products</md-button>
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a class="btn modal-action modal-close waves-effect waves-green btn-flat ">Done</a>
     </div>
 </div>

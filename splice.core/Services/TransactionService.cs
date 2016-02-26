@@ -18,6 +18,7 @@ namespace splice.core.Services
     {
         public int? transactionId { get; set; }
         public SalesTransaction transaction { get; set; }
+        public SalesTransactionItem item { get; set; }
         public List<SalesTransactionItem> items { get; set; }
     }
     
@@ -43,11 +44,12 @@ namespace splice.core.Services
             using (var uow = new UnitOfWork(DataSource.sqlConnectionString))
             {
                 var _repo = uow.transactionRepo;
+
                 //CreateTransaction
                 if (dto.transaction != null)
                 {
-                    _repo.CreateTransaction(dto.transaction);
-                    return true;
+                    dto.transaction.dateCreated = DateTime.Now;
+                   return  _repo.CreateTransaction(dto.transaction);                   
                 }
 
                 //AddItemsToTransaction
@@ -56,6 +58,14 @@ namespace splice.core.Services
                     _repo.AddItemsToTransaction(dto.transactionId.Value, dto.items);
                     return true;
                 }
+
+                //AddItem to Transaction
+                if (dto.transactionId.HasValue && dto.item != null)
+                {
+                    _repo.AddItemToTransaction(dto.transactionId.Value, dto.item);
+                    return true;
+                }
+
                 return false;
             }
        

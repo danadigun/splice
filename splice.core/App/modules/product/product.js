@@ -30,6 +30,22 @@ product.config(function ($urlRouterProvider, $stateProvider) {
             },
             url: '/stock/view'
         })
+    .state('viewStockbyId', {
+        views: {
+            'index': {
+                templateUrl:'/App/modules/product/StockById.html'
+            }
+        },
+        url:'/stock/view/:stockId'
+    })
+    .state('removeStockSuccess', {
+        views: {
+            'index': {
+                templateUrl:'/App/modules/product/stockRemoved.html',
+            }
+        },
+        url:'/stock/delete/sucess'
+    })
 });
 
 product.controller('ProductController', function ($scope, $http, $mdToast) {
@@ -37,14 +53,6 @@ product.controller('ProductController', function ($scope, $http, $mdToast) {
     $scope.DisplayManageProduct = function () {
         $('#modal-add-product').openModal();
     }       
-
-  
-
-    $scope.updateProduct = function (product) {
-        //TODO: Update Product
-    }
-
-
 });
 
 product.controller('ManageStockController', function ($scope, $http, $state, $mdToast, $interval) {
@@ -159,30 +167,10 @@ product.controller('ManageStockController', function ($scope, $http, $state, $md
                      .position('top right')
                      .hideDelay(3000)
                 );
+                loadAddedItems();
             })
        // alert("Product : " + id + " has been successfully removed!");
     }
-
-
-    //view existing stock with products
-    //$scope.titleList = "Your Stock Listings";
-    //$scope.stock = {};
-    //$scope.showExistingStock = function () {
-    //    $('#modal-add-product').closeModal();
-    //    $state.go('ViewStock');       
-    //}
-    //$http.get('/api.ashx/api/sales/stock').then(function (response) {
-    //    $scope.stock = response.data;
-    //})
-
-    ////show stock with no of items
-    //var itemsInStock = {};
-    //$scope.showStockItemsNumber = function (stockId) {
-    //    $http.get('/api.ashx/api/sales/stock?stockid='+stockId).then(function (response) {
-    //       itemsinstock = response.data;
-    //    })
-    //    return itemsinstock.items.length;
-    //}
 
 });
 

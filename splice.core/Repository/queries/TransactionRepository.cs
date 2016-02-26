@@ -17,9 +17,10 @@ namespace splice.core.Repository.queries
             _transaction = new Repository<SalesTransaction>(db);
             _transactionItem = new Repository<SalesTransactionItem>(db);
         }
-        public void CreateTransaction(data.model.SalesTransaction transaction)
+        public int CreateTransaction(data.model.SalesTransaction transaction)
         {
-            _transaction.Save(transaction);
+            return _transaction.Save(transaction);
+         
         }
 
         public void AddItemsToTransaction(int transactionId, List<data.model.SalesTransactionItem> items)
@@ -34,7 +35,15 @@ namespace splice.core.Repository.queries
                 }
             }
         }
-
+        public void AddItemToTransaction(int transactionId, SalesTransactionItem item)
+        {
+            var transaction = _transaction.GetById(transactionId);
+            if (transaction != null)
+            {
+                item.SalesTransactionId = transactionId;
+                _transactionItem.Save(item);
+            }
+        }
         public object GetTransactionWithItems(int transactionId)
         {
             var transaction = _transaction.GetById(transactionId);
@@ -61,5 +70,7 @@ namespace splice.core.Repository.queries
             }
             return false;
         }
+
+      
     }
 }

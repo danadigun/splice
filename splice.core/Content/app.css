@@ -138,3 +138,14 @@ md-content {
     padding-right:30px;
     padding-left:30px;
 }
+
+/*styling for stock listing*/
+.stocklist-button:hover {
+    border-left: 2px solid #9c27b0 !important;
+    padding-left: 20px !important;
+    background: #f3e5f5 !important;
+}
+
+.stocklist-button::selection {
+    background: #0094ff !important;
+}
