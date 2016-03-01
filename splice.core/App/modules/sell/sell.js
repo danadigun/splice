@@ -4,6 +4,7 @@
     $scope.transactionItems = {};
     $scope.shopItems = [];
     $scope.isBusy = true;
+    $scope.isEditing = false;
 
     /*
      * on_page load create a new sales transaction
@@ -35,19 +36,30 @@
     /**
      * Add items to transaction
      */
-    $scope.AddItemToTransaction = function (product) {
+    $scope.AddItemToTransaction = function (product) {        
+
+        
+
         var itemToAdd = {
             name: product.name,
             price: product.sellingPrice,
-            qty: product.quantity
+            qty: 1 //set initial quantity to 1
         };
 
         $http.post('api.ashx/api/sales/transaction', { transactionId: $scope.transactionId, item: itemToAdd })
-            .then(function () {
-                $('#product_' +product.Id).fadeOut();
+            .then(function (response) {
+                $('#product_' + product.Id).fadeOut();
                 loadItems();
+              
             })
        
+    }
+
+    $scope.isEditing = function (index) {
+      return  $scope.transactionItems[index].isEditing = true;
+    }
+    $scope.updateItem = function (Id) {
+        $scope.isEditing = true;
     }
 
     /**
@@ -57,11 +69,21 @@
         var total = 0;
 
         angular.forEach($scope.transactionItems, function (item) {
-            total = total + item.price;
+            total = total + (item.price * item.qty);
         })
         return total;
     }
     
+    /**
+     * remove item from transaction
+     */
+    $scope.removeItem = function (id) {
+        $http.delete('api.ashx/api/sales/transaction?itemId=' + id)
+           .then(function () {
+               loadItems();
+               alert('item has successfully been removed');
+           })
+    }
     //Pagination
     $scope.currentPage = 0;
     $scope.pageSize = 7;

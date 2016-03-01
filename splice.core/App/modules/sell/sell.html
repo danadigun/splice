@@ -33,7 +33,7 @@
             </md-input-container>
         </div>
         <div class="row">
-            <div class="col s7" style="padding-right:2em;">
+            <div class="col s6" style="padding-right:2em;">
                 <md-list class="stock-list">
                     <md-progress-circular style="margin-top:-2em; margin-left:5em;" ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
 
@@ -62,20 +62,50 @@
                 </span>
 
             </div>
-            <div class="col s5" style="padding-left:2em; background:white; padding-right:2em;padding-bottom:2em; padding-top:2em;">
+            <div class="col s6" style=" background:white; padding-right:2em;padding-bottom:2em; padding-top:2em;">
                 <span>
                     <b><i class="fa fa-credit-card-alt"></i>&nbsp;Transaction : {{transactionId}}</b><hr />
-                    <ul>
-                        <li ng-repeat="item in transactionItems">{{item.name}} - <b>{{item.price}}</b></li>
-                    </ul>
+                    <table>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><b>Description</b></td>
+                            <td><b>Price</b></td>
+                            <td><b>Qty</b></td>
+                            <td><b>Total</b></td>
+                        </tr>
+                        <tr ng-mouseover="isEditing=true"
+                            ng-mouseleave="isEditing=false"
+                            style="font-size:10pt; line-height:1pt; background:#e9f5cd; border:1px solid #808080" ng-repeat="item in transactionItems">
+                            <td style="border-right:1px solid #808080">{{$index+1}}</td>
+                            <td><i style="overflow: scroll;">{{item.name}}</i> </td>
+                            <td>{{item.price.toLocaleString()}}</td>
+                            <td>
+                                <span ng-hide="isEditing" id="qty_{{item.Id}}">{{item.qty.toLocaleString()}}</span>
+                                <span ng-show="isEditing" id="qty_update_{{item.Id}}">
+                                    <input style="width:30px; border-bottom:2px solid #0094ff;" type="number" ng-model="item.qty" value="{{item.qty}}" />
+                                </span>
+                            </td>
+                            <td>{{(item.price * item.qty).toLocaleString()}}</td>
+                            <td>
+                                <span ng-hide="isEditing" id="update_remove_{{item.Id}}">
+                                  <!--  <button title="update item" ng-click="updateItem(item.Id)" class="btn waves-effect waves-light btn-floating" style="background:#808080"><i style="font-size:10pt;" class="fa fa-pencil-square-o"></i></button>-->
+                                    <button title="remove item" ng-click="removeItem(item.Id)" class="btn waves-effect waves-light btn-floating" style="background:#e65100">x</button>
+                                </span>
+                                <span ng-show="isEditing" id="update_save_{{item.Id}}">
+                                    <button title="remove item" ng-click="removeItem(item.Id)" class="btn waves-effect waves-light btn-floating" style="background:#e65100">x</button>
+                                   
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
                     <span style="display:block; padding:10px;">
-                        <span >Sub-total</span>&nbsp;&nbsp;<b>₦3,560.00</b>
+                        <span >Sub-total</span>&nbsp;&nbsp;<b>₦{{getTransactionSum().toLocaleString()}}</b>
                     </span>
                     <span style="display:block; padding:10px;">
                         <span >Discount</span>&nbsp;&nbsp;<b>₦23.00</b>
                     </span>
                     <span style="display:block; padding:10px;">
-                        <span ><b>TOTAL</b></span><b style="color:blue; font-size:18pt;">&nbsp;&nbsp;₦{{getTransactionSum()}}</b>
+                        <span ><b>TOTAL</b></span><b style="color:blue; font-size:18pt;">&nbsp;&nbsp;₦{{getTransactionSum().toLocaleString()}}</b>
                     </span>
 
                     <span style="display:block; padding-top:20px;">

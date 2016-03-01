@@ -20,7 +20,7 @@ namespace splice.core.Repository.queries
         public int CreateTransaction(data.model.SalesTransaction transaction)
         {
             return _transaction.Save(transaction);
-         
+
         }
 
         public void AddItemsToTransaction(int transactionId, List<data.model.SalesTransactionItem> items)
@@ -35,14 +35,15 @@ namespace splice.core.Repository.queries
                 }
             }
         }
-        public void AddItemToTransaction(int transactionId, SalesTransactionItem item)
+        public int AddItemToTransaction(int transactionId, SalesTransactionItem item)
         {
             var transaction = _transaction.GetById(transactionId);
             if (transaction != null)
             {
                 item.SalesTransactionId = transactionId;
-                _transactionItem.Save(item);
+                return _transactionItem.Save(item);
             }
+            return 0;
         }
         public object GetTransactionWithItems(int transactionId)
         {
@@ -71,6 +72,12 @@ namespace splice.core.Repository.queries
             return false;
         }
 
-      
+        public bool removeItemFromTransaction(int itemId)
+        {
+            _transactionItem.Delete(x => x.Id == itemId);
+            return true;          
+        }
+
+
     }
 }

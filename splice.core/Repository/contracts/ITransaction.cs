@@ -12,7 +12,7 @@ namespace splice.core.Repository.contracts
         int CreateTransaction(SalesTransaction transaction);
 
         void AddItemsToTransaction(int transactionId, List<SalesTransactionItem> items);
-        void AddItemToTransaction(int transactionId, SalesTransactionItem item);
+        int AddItemToTransaction(int transactionId, SalesTransactionItem item);
         object GetTransactionWithItems(int transactionId);
 
         bool removeTransaction(int transactionId);

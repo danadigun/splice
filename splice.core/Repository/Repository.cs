@@ -62,6 +62,7 @@ namespace splice.core.Repository
         public void Delete(Expression<Func<T, bool>> exp)
         {
             db.Delete<T>(exp);
+            
         }
     }
 }
