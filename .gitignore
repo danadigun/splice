@@ -1,0 +1,12 @@
+bin
+Debug
+*.dll
+*.transform
+*.nupkg
+*.xml
+*.psd1
+*.psm1
+*.config
+*.txt
+*.exe
+packages

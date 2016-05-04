@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{CC57E136-C777-493E-81C9-BA9D9A39765C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{A5C6CF2D-2D11-458E-AB6F-D6E07EB41A75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{500391B8-12B2-4130-AA72-4D4AD9437057}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splice.BusinessLogic.Interface", "Splice.BusinessLogic.Interface\Splice.BusinessLogic.Interface.csproj", "{51692606-C91A-4D14-B792-3198B8BB8772}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splice.BusinessLogic.Impl", "Splice.BusinessLogic.Impl\Splice.BusinessLogic.Impl.csproj", "{5078E78A-6AFF-4466-91F6-8406F3CC6FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splice.Repository.Interface", "Splice.Repository.Interface\Splice.Repository.Interface.csproj", "{FD9407C5-270E-4B0B-B221-B071DB486D72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splice.Repository.Impl", "Splice.Repository.Impl\Splice.Repository.Impl.csproj", "{C788325B-591B-4693-BEDF-C87DDE80565D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{E2C2FEEF-98B2-4E0F-9709-060D6F3EAD66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splice.DomainObjects", "Splice.DomainObjects\Splice.DomainObjects.csproj", "{8E322A19-4CEB-4A91-B501-874525397192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splice.Persistence .Nhibernate.Mapping", "Splice.Persistence .Nhibernate.Mapping\Splice.Persistence .Nhibernate.Mapping.csproj", "{9D42A10F-ED20-4CD9-ACC2-598B18E11C61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splice.DTO", "Splice.DTO\Splice.DTO.csproj", "{C3CC7168-1795-4063-86FE-CBEE3C60466B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splice.Web.Api", "Splice.Web.Api\Splice.Web.Api.csproj", "{F56F6821-747C-4E11-B0B3-89D7DB2769F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51692606-C91A-4D14-B792-3198B8BB8772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51692606-C91A-4D14-B792-3198B8BB8772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51692606-C91A-4D14-B792-3198B8BB8772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51692606-C91A-4D14-B792-3198B8BB8772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5078E78A-6AFF-4466-91F6-8406F3CC6FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5078E78A-6AFF-4466-91F6-8406F3CC6FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5078E78A-6AFF-4466-91F6-8406F3CC6FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5078E78A-6AFF-4466-91F6-8406F3CC6FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9407C5-270E-4B0B-B221-B071DB486D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9407C5-270E-4B0B-B221-B071DB486D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9407C5-270E-4B0B-B221-B071DB486D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9407C5-270E-4B0B-B221-B071DB486D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C788325B-591B-4693-BEDF-C87DDE80565D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C788325B-591B-4693-BEDF-C87DDE80565D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C788325B-591B-4693-BEDF-C87DDE80565D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C788325B-591B-4693-BEDF-C87DDE80565D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E322A19-4CEB-4A91-B501-874525397192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E322A19-4CEB-4A91-B501-874525397192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E322A19-4CEB-4A91-B501-874525397192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E322A19-4CEB-4A91-B501-874525397192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D42A10F-ED20-4CD9-ACC2-598B18E11C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D42A10F-ED20-4CD9-ACC2-598B18E11C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D42A10F-ED20-4CD9-ACC2-598B18E11C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D42A10F-ED20-4CD9-ACC2-598B18E11C61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3CC7168-1795-4063-86FE-CBEE3C60466B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3CC7168-1795-4063-86FE-CBEE3C60466B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3CC7168-1795-4063-86FE-CBEE3C60466B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3CC7168-1795-4063-86FE-CBEE3C60466B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F56F6821-747C-4E11-B0B3-89D7DB2769F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F56F6821-747C-4E11-B0B3-89D7DB2769F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F56F6821-747C-4E11-B0B3-89D7DB2769F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F56F6821-747C-4E11-B0B3-89D7DB2769F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F56F6821-747C-4E11-B0B3-89D7DB2769F0} = {CC57E136-C777-493E-81C9-BA9D9A39765C}
+		{51692606-C91A-4D14-B792-3198B8BB8772} = {A5C6CF2D-2D11-458E-AB6F-D6E07EB41A75}
+		{5078E78A-6AFF-4466-91F6-8406F3CC6FF3} = {A5C6CF2D-2D11-458E-AB6F-D6E07EB41A75}
+		{FD9407C5-270E-4B0B-B221-B071DB486D72} = {500391B8-12B2-4130-AA72-4D4AD9437057}
+		{C788325B-591B-4693-BEDF-C87DDE80565D} = {500391B8-12B2-4130-AA72-4D4AD9437057}
+		{8E322A19-4CEB-4A91-B501-874525397192} = {E2C2FEEF-98B2-4E0F-9709-060D6F3EAD66}
+		{9D42A10F-ED20-4CD9-ACC2-598B18E11C61} = {E2C2FEEF-98B2-4E0F-9709-060D6F3EAD66}
+		{C3CC7168-1795-4063-86FE-CBEE3C60466B} = {E2C2FEEF-98B2-4E0F-9709-060D6F3EAD66}
+	EndGlobalSection
+EndGlobal
