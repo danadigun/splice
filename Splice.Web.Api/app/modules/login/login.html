@@ -1,5 +1,31 @@
-﻿<div class="container">
-    <div>
+﻿<div class="general-wrapper">
+    <div class="row" style="margin-left:480px;margin-top:100px;">
+        <section class="content">
+            <div class="box new-user col-lg-6 vertical-center-row">
+                <div class="box-header">
+                    <h3 class="text-uppercase text-center">Please Sign In</h3>
+                </div>
+                <div class="box-body padding-layout">
+                    <form role="form">
+                        <div ng-show="error" class="alert alert-danger">{{error}}</div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Email Address or UserId" ng-model="UserModel.Email" class="form-control" id="email" name="email" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" ng-model="UserModel.PasswordEncr" class="form-control" id="Password1" name="email" />
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 user-button" style="text-align:center; margin-top: 0px">
+                                <button class="btn btn-defualt cuser" ng-click="Login()" style="margin-right: 0px; margin-top: 0px;">Login</button>
+                                <button class="btn btn-defualt cuser" style="margin-right: 0px; margin-top: 0px;" ui-sref="signup">Signup</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
+            <!-- /.row -->
+        </section>
     </div>
 </div>
+

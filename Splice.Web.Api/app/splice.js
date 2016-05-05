@@ -1,5 +1,5 @@
 ﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier', 'splice.product', 'JDatePicker']);
-
+splice.value("baseUrl", 'http://localhost:3113');
 splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
     $mdThemingProvider.theme('docs-dark', 'default')
@@ -8,10 +8,29 @@ splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) 
 
     $urlRouterProvider.otherwise(function ($injector) {
         var $state = $injector.get("$state");
-        $state.go('dashboard');
+        $state.go('login');
     });
 
-    $stateProvider.state('dashboard', {
+    $stateProvider.state('login', {
+        views: {
+            'index': {
+                templateUrl: 'modules/login/login.html',
+                theme: ''
+            }
+        },
+        url: '/login'
+    })
+     .state('signup', {
+         views: {
+             'index': {
+                 templateUrl: '/App/modules/login/signup.html',
+                 controller: 'retailerController',
+                 theme: ''
+             }
+         },
+         url: '/signup'
+     })
+    .state('dashboard', {
         views: {
             'index': {
                 templateUrl: '/App/modules/dashboard/dashboard.html'
