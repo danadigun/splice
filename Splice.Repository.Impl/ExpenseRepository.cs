@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NHibernate.Linq;
+using Splice.DTO;
 namespace Splice.Repository.Impl
 {
     public class ExpenseRepository : Repository<Expense>, IExpenseRepo
@@ -24,13 +25,13 @@ namespace Splice.Repository.Impl
             var expense = base.GetById(expenseId);
             var expenseItems = _session.Query<ExpenseItems>().Where(x => x.ExpenseId == expenseId);
 
-            //var expenseWithItems = new ExpenseWithItems
-            //{
-            //    expenseId = expense.Id,
-            //    expenseTitle = expense.title,
-            //    dateCreated = expense.dateCreated,
-            //    items = expenseItems
-            //};
+            var expenseWithItems = new ExpenseWithItems
+            {
+                ExpenseId = expense.Id,
+                ExpenseTitle = expense.Title,
+                DateCreated = expense.DateCreated,
+                ExpenseItems = expenseItems
+            };
             return expenseWithItems;
         }
 

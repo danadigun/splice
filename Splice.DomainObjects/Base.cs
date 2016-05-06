@@ -8,6 +8,6 @@ namespace Splice.DomainObjects
 {
     public class Base
     {
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
     }
 }

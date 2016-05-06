@@ -21,7 +21,7 @@
         $scope.CreateUser = function () {
             retailerService.createUser($scope.UserModel)
                        .then(function (response) {
-
+                           $location.path('login');
                        })
 
 

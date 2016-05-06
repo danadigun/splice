@@ -22,7 +22,7 @@ namespace Splice.Repository.Interface
         /// <param name="exp"></param>
         /// <returns></returns>
         List<T> Get(Expression<Func<T, bool>> exp);
-
+        T Get1(Expression<Func<T, bool>> expression);
         /// <summary>
         /// Get an instance of T with the specified id
         /// </summary>

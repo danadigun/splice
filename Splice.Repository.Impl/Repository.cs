@@ -40,6 +40,16 @@ namespace Splice.Repository.Impl
         }
 
         /// <summary>
+        /// Get a single entity
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public T Get1(Expression<Func<T, bool>> expression)
+        {
+            return _session.Query<T>().FirstOrDefault(expression);
+        }
+
+        /// <summary>
         /// Get entity by PK
         /// </summary>
         /// <param name="id"></param>

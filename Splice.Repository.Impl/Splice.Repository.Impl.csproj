@@ -54,11 +54,16 @@
   <ItemGroup>
     <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Splice.DomainObjects\Splice.DomainObjects.csproj">
       <Project>{8e322a19-4ceb-4a91-b501-874525397192}</Project>
       <Name>Splice.DomainObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Splice.DTO\Splice.DTO.csproj">
+      <Project>{c3cc7168-1795-4063-86fe-cbee3c60466b}</Project>
+      <Name>Splice.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\Splice.Repository.Interface\Splice.Repository.Interface.csproj">
       <Project>{fd9407c5-270e-4b0b-b221-b071db486d72}</Project>

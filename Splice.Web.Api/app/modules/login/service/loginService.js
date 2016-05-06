@@ -2,8 +2,9 @@
     var loginService = {}
 
     loginService.login = function (loginModel) {
-        return $http.post(baseUrl + '/api/RetailerController/Login', loginModel);
-        };
+        return $http.post(baseUrl + '/api/Retailer/login', loginModel);
+    };
+
 
     
     return loginService;

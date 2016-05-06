@@ -3,6 +3,7 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using Splice.BusinessLogic.Impl;
 using Splice.BusinessLogic.Interface;
+using Splice.Persistence.Nhibernate.Mapping;
 using Splice.Repository.Impl;
 using Splice.Repository.Interface;
 using StructureMap;
@@ -60,7 +61,7 @@ namespace Splice.Web.Api.App_Start
                 .Database(MsSqlConfiguration.MsSql2012
                 .ConnectionString(ConfigurationManager.ConnectionStrings["SpliceDb"].ConnectionString))
                 .ExposeConfiguration(c => c.SetProperty("current_session_context_class", "web"))
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Splice.Persistence.Nhibernate.Mapping.StockMap>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Splice.Persistence.Nhibernate.Mapping.UserMap>())
                 .Cache(x => x.Not.UseQueryCache())
                 .BuildSessionFactory();
         }
@@ -82,6 +83,8 @@ namespace Splice.Web.Api.App_Start
                 x.For<IExpenseHelper>().Use<ExpenseHelper>();
                 x.For<ITransactionHelper>().Use<TransactionHelper>();
                 x.For(typeof(IRepository<>)).Use(typeof(Repository<>));
+                x.For<IUserHelper>().Use<UserHelper>();
+                x.For<IUserRepository>().Use<UserRepository>();
             });           
         }
     }

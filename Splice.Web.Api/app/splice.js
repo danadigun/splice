@@ -15,6 +15,7 @@ splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) 
         views: {
             'index': {
                 templateUrl: 'modules/login/login.html',
+                controller:'loginController',
                 theme: ''
             }
         },

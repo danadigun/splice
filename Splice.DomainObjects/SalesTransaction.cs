@@ -8,7 +8,7 @@ namespace Splice.DomainObjects
 {
     public class SalesTransaction : Base
     {
-        public DateTime DateCreated { get; set; }
-        public string SoldBy { get; set; }
+        public virtual DateTime DateCreated { get; set; }
+        public virtual string SoldBy { get; set; }
     }
 }

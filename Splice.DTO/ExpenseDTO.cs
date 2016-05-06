@@ -20,6 +20,6 @@ namespace Splice.DTO
         public int ExpenseId { get;set; }
         public string ExpenseTitle { get; set; }
         public DateTime DateCreated { get; set; }
-        public IList<ExpenseItems> ExpenseItems { get; set; }
+        public List<ExpenseItems> ExpenseItems { get; set; }
     }
 }
