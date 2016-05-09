@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="ExpenseItemsMap.cs" />
     <Compile Include="ExpenseMap.cs" />
+    <Compile Include="ProductMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalesTransactionItemMap.cs" />
     <Compile Include="SalesTransactionMap.cs" />

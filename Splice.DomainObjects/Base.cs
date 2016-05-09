@@ -9,5 +9,7 @@ namespace Splice.DomainObjects
     public class Base
     {
         public virtual int Id { get; set; }
+        public virtual DateTime CreatedTime { get; set; }
+        public virtual DateTime LastUpdateTime  { get; set; }
     }
 }

@@ -14,9 +14,16 @@ namespace Splice.Persistence.Nhibernate.Mapping
         {
             Table("Stock");
             Id(x => x.Id).GeneratedBy.Identity();
+            Map(x => x.Name);
+            Map(x => x.Status);
+            Map(x => x.Deleted);
+            Map(x => x.MaxQuantity);
             Map(x => x.Title);
             Map(x => x.Description);
-            Map(x => x.DateCreated);
+            Map(x => x.CreatedTime);
+            Map(x => x.LastUpdateTime);
+            Map(x => x.AvailabilityDate);
+            
         }
     }
 }

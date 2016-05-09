@@ -8,8 +8,12 @@ namespace Splice.DomainObjects
 {
     public class Stock : Base
     {
+        public virtual string Name { get; set; }
         public virtual string Title { get; set; }
         public virtual string Description { get; set; }
-        public virtual DateTime DateCreated { get; set; }
+        public virtual int MaxQuantity { get; set; }
+        public virtual DateTime AvailabilityDate { get; set; }
+        public virtual string Status { get; set; }
+        public virtual int Deleted { get; set; }
     }
 }

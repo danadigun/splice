@@ -2,3 +2,15 @@
     width: 50%;
     margin: 0px auto;
 }
+
+.logout-btn {
+    float: right;
+    margin-top: -36px;
+}
+.navbar-style {
+    background-color: #9820a3;
+    color: #fff;
+    height: 56px;
+    line-height: 56px;
+    width: 100%;
+}

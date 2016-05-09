@@ -1,6 +1,8 @@
 ﻿var dashboard = angular.module('splice.dashboard', []);
 
-dashboard.controller('StoreHealthController', function ($scope) {
+dashboard.controller('StoreHealthController', function ($scope, $rootScope) {
+ 
+    $rootScope.hidebar = true;
     var chart = AmCharts.makeChart("chartdiv", {
         "type": "pie",
         "theme": "light",
@@ -22,4 +24,6 @@ dashboard.controller('StoreHealthController', function ($scope) {
             "enabled": true
         }
     });
+  
+
 });

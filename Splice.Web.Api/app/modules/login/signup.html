@@ -10,62 +10,71 @@
                     </span>
                 </label>
             </div>
+            <form id="SignUpForm">
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.UserName" placeholder="UserName" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.UserName" placeholder="UserName" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="password" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.Password" placeholder="Password" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="password" class="form-control inputBorder" ng-model="UserModel.Password" placeholder="Password" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.Name" placeholder="Name" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.Name" placeholder="Name" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.Position" placeholder="Position" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.Position" placeholder="Position" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.StreetAddress" placeholder="StreetAddress" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.StreetAddress" placeholder="StreetAddress" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.City" placeholder="City" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.City" placeholder="City" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.Country" placeholder="Country" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.Country" placeholder="Country" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.Phone" placeholder="Phone" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.Phone" placeholder="Phone" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.Fax" placeholder="Fax" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.Fax" placeholder="Fax" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.RetailURL" placeholder="RetailURL" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.RetailURL" placeholder="RetailURL" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.EmailAddress" placeholder="EmailAddress" />
+                </div>
 
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.EmailAddress" placeholder="EmailAddress" />
-            </div>
-
-            <div class="text-center col-md-6">
-                <input type="text" class="form-control inputBorder" ng-model="UserModel.StoreName" placeholder="StoreName" />
-            </div>
+                <div class="text-center col-md-6">
+                    <input type="text" class="form-control inputBorder validate[required] text-input" ng-model="UserModel.StoreName" placeholder="StoreName" />
+                </div>
+            </form>
 
         </div>
         <div class="row">
             <div class="text-center col-md-12">
                 <input type="button" class="btn btn-defualt cuser" ng-click="CreateUser()" value="SignUp" />
+                    <input type="button" class="btn btn-defualt" ng-click="Cancel()" value="Cancel" />
             </div>
         </div>
 
     </div>
 </div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        // binds form submission and fields to the validation engine
+        // binds form submission and fields to the validation engine
+        $("form").validationEngine();
+    });
+</script>
 

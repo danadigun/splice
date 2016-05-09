@@ -731,6 +731,8 @@
     <Content Include="app\Scripts\angular.min.js" />
     <Content Include="app\Scripts\bootstrap.js" />
     <Content Include="app\Scripts\bootstrap.min.js" />
+    <Content Include="app\Scripts\growl\angular-growl.css" />
+    <Content Include="app\Scripts\growl\angular-growl.js" />
     <Content Include="app\Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="app\Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="app\Scripts\i18n\angular-locale_aa-et.js" />
@@ -1497,6 +1499,9 @@
     <Content Include="app\Scripts\moment-with-locales.min.js" />
     <Content Include="app\Scripts\moment.js" />
     <Content Include="app\Scripts\moment.min.js" />
+    <Content Include="app\Scripts\validation\jquery.validationEngine-en.js" />
+    <Content Include="app\Scripts\validation\jquery.validationEngine.js" />
+    <Content Include="app\Scripts\validation\validationEngine.jquery.css" />
     <Content Include="app\Scripts\_references.js" />
     <Content Include="app\sidebar.html" />
     <Content Include="app\splice.js" />
@@ -1762,6 +1767,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\modules\stock\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

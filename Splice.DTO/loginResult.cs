@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Splice.DTO
 {
-    public class loginResult
+    public class LoginResult
     {
         public virtual bool Success { get; set; }
-        public virtual string Msg { get; set; }
+        public virtual string Message { get; set; }
     }
 }

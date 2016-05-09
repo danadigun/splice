@@ -60,7 +60,7 @@ namespace Splice.BusinessLogic.Impl
             if (stock != null)
             {
                 item.StockId = stockId;
-                item.DateCreated = DateTime.Now;
+                item.CreatedTime = DateTime.Now;
                 _stockItemsRepo.Save(item);
             }
 
@@ -78,7 +78,7 @@ namespace Splice.BusinessLogic.Impl
 
             var stockWithItems = new StockWithItemsDTO
             {
-                DateCreated = stock.DateCreated,
+                DateCreated = stock.CreatedTime,
                 StockId = stock.Id,
                 StockTitle = stock.Title,
                 StockItemsList = stockItems,

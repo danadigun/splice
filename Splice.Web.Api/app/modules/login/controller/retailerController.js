@@ -1,5 +1,5 @@
 ﻿var splice = angular.module('spliceApp')
-    .controller('retailerController', ['$scope', 'retailerService', function ($scope, retailerService) {
+    .controller('retailerController', ['$scope', 'retailerService', '$location', 'growl', function ($scope, retailerService, $location, growl) {
 
 
         $scope.UserModel = {
@@ -19,13 +19,23 @@
         }
 
         $scope.CreateUser = function () {
-            retailerService.createUser($scope.UserModel)
-                       .then(function (response) {
-                           $location.path('login');
-                       })
+            if ($.fn.validateForceFully($("#SignUpForm")) == true) {
+                retailerService.createUser($scope.UserModel)
+                           .then(function (response) {
+                               if (response) {
+                                   growl.success('User Created Successfully')
+                                   $location.path('login');
+                               }
+                               else {
+                                   growl.error('Unable to CreateUser,Please try again.')
+                               }
+                           })
 
 
+            }
         }
-
+        $scope.Cancel = function () {
+            $location.path('login');
+        };
 
     }])

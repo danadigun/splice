@@ -10,7 +10,7 @@ namespace Splice.BusinessLogic.Interface
 {
     public interface IUserHelper
     {
-        loginResult login(User user);
+        LoginResult login(User user);
         //bool IsAdmin(int aserId);
         void Save(User user);
     }

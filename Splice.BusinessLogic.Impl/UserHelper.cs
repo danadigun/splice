@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Splice.BusinessLogic.Impl
 {
-    public class UserHelper:IUserHelper
+    public class UserHelper : IUserHelper
     {
         private IUserRepository _userRepo;
         public UserHelper(IUserRepository userRepo)
@@ -20,27 +20,31 @@ namespace Splice.BusinessLogic.Impl
 
         public void Save(User user)
         {
+            var encreptedPass = user.Password.EncreptedPassword();
+            user.Password = encreptedPass;
             user.Type = "Retailer";
             _userRepo.Save(user);
         }
 
-        public loginResult login(User user)
+        public LoginResult login(User user)
         {
-            //var password = Encoding.Unicode.GetBytes(user.Password);
-            var usr = _userRepo.Get1(x => x.UserName == user.UserName && x.Password == user.Password);
+            var encreptedPass = user.Password.EncreptedPassword();
+            user.Password = encreptedPass;
+            var usr = _userRepo.Get1(x => x.UserName == user.UserName && x.Password == encreptedPass);
             if (usr != null)
             {
-                return new loginResult
+                return new LoginResult
                 {
                     Success = true
 
                 };
             }
-            return new loginResult
+            return new LoginResult
             {
                 Success = false
             };
         }
+
 
     }
 }

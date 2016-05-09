@@ -1,6 +1,7 @@
-﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier', 'splice.product', 'JDatePicker']);
+﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier', 'splice.product', 'JDatePicker', 'angular-growl']);
 splice.value("baseUrl", 'http://localhost:3113');
-splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, growlProvider) {
+    growlProvider.globalDisableCountDown(true);
 
     $mdThemingProvider.theme('docs-dark', 'default')
      .primaryPalette('blue')
@@ -34,7 +35,8 @@ splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) 
     .state('dashboard', {
         views: {
             'index': {
-                templateUrl: '/App/modules/dashboard/dashboard.html'
+                templateUrl: '/App/modules/dashboard/dashboard.html',
+                controller:'StoreHealthController'
             }
         },
         url: '/dashboard'
@@ -96,6 +98,12 @@ splice.controller('SliderController', function ($scope, $mdSidenav) {
     }
 });
 
-splice.run(function ($log) {
+splice.run(function ($log, $rootScope, $location) {
     $log.debug("splice running");
+    $rootScope.hidebar = false;
+
+    $rootScope.logout = function () {
+        $location.path('login');
+    };
+
 });
