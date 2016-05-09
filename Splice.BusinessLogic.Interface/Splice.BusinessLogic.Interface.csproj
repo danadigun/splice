@@ -50,16 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Splice.DomainObjects\Splice.DomainObjects.csproj">
-      <Project>{8e322a19-4ceb-4a91-b501-874525397192}</Project>
-      <Name>Splice.DomainObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Splice.DTO\Splice.DTO.csproj">
-      <Project>{c3cc7168-1795-4063-86fe-cbee3c60466b}</Project>
-      <Name>Splice.DTO</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="bin\Debug\Splice.BusinessLogic.Interface.dll" />
     <Content Include="bin\Debug\Splice.BusinessLogic.Interface.pdb" />
     <Content Include="bin\Debug\Splice.DomainObjects.dll" />
@@ -76,6 +66,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Splice.DomainObjects\Splice.DomainObjects.csproj">
+      <Project>{8e322a19-4ceb-4a91-b501-874525397192}</Project>
+      <Name>Splice.DomainObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Splice.DTO\Splice.DTO.csproj">
+      <Project>{c3cc7168-1795-4063-86fe-cbee3c60466b}</Project>
+      <Name>Splice.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
