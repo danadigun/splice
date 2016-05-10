@@ -687,8 +687,6 @@
     <Content Include="app\modules\login\controller\loginController.js" />
     <Content Include="app\modules\login\controller\retailerController.js" />
     <Content Include="app\modules\login\login.html" />
-    <Content Include="app\modules\login\service\loginService.js" />
-    <Content Include="app\modules\login\service\retailerService.js" />
     <Content Include="app\modules\login\signup.html" />
     <Content Include="app\modules\product\createStock.html" />
     <Content Include="app\modules\product\product.html" />
@@ -701,6 +699,8 @@
     <Content Include="app\modules\reports\reports.html" />
     <Content Include="app\modules\sell\sell.html" />
     <Content Include="app\modules\sell\sell.js" />
+    <Content Include="app\modules\services\loginService.js" />
+    <Content Include="app\modules\services\retailerService.js" />
     <Content Include="app\Scripts\angular-animate.js" />
     <Content Include="app\Scripts\angular-animate.min.js" />
     <Content Include="app\Scripts\angular-aria.js" />
@@ -1494,6 +1494,8 @@
     <Content Include="app\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="app\Scripts\knockout-2.1.0.debug.js" />
     <Content Include="app\Scripts\knockout-2.1.0.js" />
+    <Content Include="app\Scripts\mask\ngMask.js" />
+    <Content Include="app\Scripts\mask\ngMask.min.js" />
     <Content Include="app\Scripts\modernizr-2.5.3.js" />
     <Content Include="app\Scripts\moment-with-locales.js" />
     <Content Include="app\Scripts\moment-with-locales.min.js" />
