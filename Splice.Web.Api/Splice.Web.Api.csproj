@@ -667,10 +667,8 @@
     <Content Include="app\Content\font-awesome-4.5.0\css\font-awesome.css" />
     <Content Include="app\Content\font-awesome-4.5.0\css\font-awesome.min.css" />
     <Content Include="app\Content\font-awesome-4.5.0\fonts\fontawesome-webfont.svg" />
-    <Content Include="app\Content\font-awesome-4.5.0\HELP-US-OUT.txt" />
     <Content Include="app\Content\materialize-v0.97.1\css\materialize.css" />
     <Content Include="app\Content\materialize-v0.97.1\css\materialize.min.css" />
-    <Content Include="app\Content\materialize-v0.97.1\font\material-design-icons\LICENSE.txt" />
     <Content Include="app\Content\materialize-v0.97.1\font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="app\Content\materialize-v0.97.1\js\materialize.js" />
     <Content Include="app\Content\materialize-v0.97.1\js\materialize.min.js" />
@@ -1722,6 +1720,7 @@
     <Content Include="app\Scripts\errors.json" />
     <Content Include="app\Scripts\jquery-1.9.1.min.map" />
     <Content Include="app\Scripts\version.json" />
+    <None Include="Properties\PublishProfiles\deploy-splice.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
