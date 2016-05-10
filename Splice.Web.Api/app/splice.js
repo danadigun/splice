@@ -1,5 +1,7 @@
 ﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier', 'splice.product', 'JDatePicker', 'angular-growl']);
-splice.value("baseUrl", 'http://localhost:3113');
+
+splice.value("baseUrl", '');
+
 splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, growlProvider) {
     growlProvider.globalDisableCountDown(true);
 
