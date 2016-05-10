@@ -3,29 +3,27 @@
 
 
         $scope.UserModel = {
-            UserName: "",
-            EmailAddre: "",
+
+            FirstName: "",
+            LastName: "",
+            Email: "",
             Password: "",
-            Name: "",
-            Position: "",
-            StoreName: "",
-            StreetAddr: "",
-            City: "",
+            Address: "",
             Country: "",
             Phone: "",
-            Fax: "",
+            StoreName: "",
             RetailURL: "",
             Type: "",
-            ConfirmPassword:""
+            ConfirmPassword: ""
         }
 
         $scope.CreateUser = function () {
-            if ($.fn.validateForceFully($("#signUpId")) == true) {
+            //if ($.fn.validateForceFully($("#signUpId")) == true) {
                 retailerService.createUser($scope.UserModel)
                            .then(function (response) {
                                if (response) {
-                                   growl.success('User Created Successfully')
-                                   $location.path('login');
+                                   growl.success('Welcome! ' + $scope.UserModel.FirstName)
+                                   $location.path('dashboard');
                                }
                                else {
                                    growl.error('Unable to CreateUser,Please try again.')
@@ -34,7 +32,7 @@
 
 
             }
-        }
+        //}
 
 
 

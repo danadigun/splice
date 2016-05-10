@@ -1,9 +1,8 @@
 ﻿<link href="Content/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">-->
 <div style="width: 100%">
     <div class="col s12 z-depth-6 card-panel " style="width: 40%; margin: 0px auto;">
-        <form class="login-form">
+        <form class="login-form" name="loginForm">
             <div class="row">
                 <div class="input-field col s12 center">
                     <h4 class="text-uppercase text-center">Please Sign In</h4>
@@ -13,21 +12,21 @@
             <div class="row margin nomargin">
                 <div class="input-field col s11 ">
                     <i class="mdi-communication-email prefix"></i>
-                    <input id="email" type="email" class="validate" ng-model="loginModel.Email">
+                    <input id="email" type="email" class="validate" required="required" ng-model="loginModel.Email">
                     <label for="email" class="center-align">Email</label>
                 </div>
             </div>
             <div class="row margin nomargin">
                 <div class="input-field col s11">
                     <i class="mdi-action-lock-outline prefix"></i>
-                    <input id="password" type="password" class="validate" ng-model="loginModel.Password">
+                    <input id="password" type="password" class="validate"required="required" ng-model="loginModel.Password">
                     <label for="password" class="">Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <!--<a href="register.html" class="btn waves-effect waves-light col s12">Register Now</a>-->
-                    <input type="button" class="btn waves-effect waves-light col s12" ng-click="Login()" value="Login" />
+                
+                    <input type="button" class="btn waves-effect waves-light col s12" ng-disabled="loginForm.$invalid" ng-click="Login()" value="Login" />
                 </div>
                 <div class="input-field col s12">
                     <p class="margin center medium-small sign-up">Don't have an account? <a href="#/signup">SignUp</a></p>
