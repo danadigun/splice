@@ -30,7 +30,7 @@ namespace Splice.BusinessLogic.Impl
         {
             var encreptedPass = user.Password.EncreptedPassword();
             user.Password = encreptedPass;
-            var usr = _userRepo.Get1(x => x.UserName == user.UserName && x.Password == encreptedPass);
+            var usr = _userRepo.Get1(x => x.Email == user.Email && x.Password == encreptedPass);
             if (usr != null)
             {
                 return new LoginResult

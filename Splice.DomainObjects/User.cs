@@ -8,17 +8,14 @@ namespace Splice.DomainObjects
 {
     public class User : Base
     {
-        public virtual string UserName { get; set; }
-        public virtual string EmailAddress { get; set; }
+        public virtual string FirstName { get; set; }
+        public virtual string LastName { get; set; }
+        public virtual string Email { get; set; }
         public virtual string Password { get; set; }
-        public virtual string Name { get; set; }
-        public virtual string Position { get; set; }
-        public virtual string StoreName { get; set; }
-        public virtual string StreetAddress { get; set; }
-        public virtual string City { get; set; }
+        public virtual string Address { get; set; }
         public virtual string Country { get; set; }
         public virtual string Phone { get; set; }
-        public virtual string Fax { get; set; }
+        public virtual string StoreName { get; set; }
         public virtual string RetailURL { get; set; }
         public virtual string Type { get; set; }
     }
