@@ -19,3 +19,15 @@
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="time"], input[type="date"], input[type="datetime-local"], input[type="tel"], input[type="number"], input[type="search"], textarea.materialize-textarea {
     font-size: 1.7rem !important;
 }
+.input-field label {
+    font-size: 1.2rem;
+}
+.input-field label.active {
+    font-size: 1.2rem;
+    transform: translateY(-140%);
+}
+
+.nomargin {
+    margin-left:0px !important;
+    margin-right:0px !important;
+}

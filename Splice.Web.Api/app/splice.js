@@ -1,4 +1,4 @@
-﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier', 'splice.product', 'JDatePicker', 'angular-growl']);
+﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier', 'splice.product', 'JDatePicker', 'angular-growl', 'ngMask']);
 
 splice.value("baseUrl", '');
 

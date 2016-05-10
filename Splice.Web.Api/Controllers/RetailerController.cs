@@ -34,9 +34,9 @@ namespace Splice.Web.Api.Controllers
             }
         }
         [HttpPost]
-        public LoginResult login(User user)
+        public LoginResult Login(User user)
         {
-            return _userHelper.login(user.Email,user.Password);
+            return _userHelper.Login(user.Email, user.Password);
         }
 
     }

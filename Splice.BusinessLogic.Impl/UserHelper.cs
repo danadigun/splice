@@ -25,6 +25,9 @@ namespace Splice.BusinessLogic.Impl
                 var encreptedPass = user.Password.EncreptedPassword();
                 user.Password = encreptedPass;
                 user.Type = "Retailer";
+                user.CreatedTime = DateTime.Now;
+                user.LastUpdateTime = DateTime.Now;
+                user.Deleted = 0;
                 _userRepo.Save(user);
             }
             catch (Exception ex)
@@ -33,7 +36,7 @@ namespace Splice.BusinessLogic.Impl
             }
         }
 
-        public LoginResult login(string email,string password)
+        public LoginResult Login(string email,string password)
         {
             var encreptedPass = password.EncreptedPassword();
             var user = _userRepo.Get(x => x.Email == email && x.Password == encreptedPass);

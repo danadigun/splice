@@ -15,11 +15,12 @@
             Phone: "",
             Fax: "",
             RetailURL: "",
-            Type: ""
+            Type: "",
+            ConfirmPassword:""
         }
 
         $scope.CreateUser = function () {
-            if ($.fn.validateForceFully($("#SignUpForm")) == true) {
+            if ($.fn.validateForceFully($("#signUpId")) == true) {
                 retailerService.createUser($scope.UserModel)
                            .then(function (response) {
                                if (response) {
@@ -34,6 +35,22 @@
 
             }
         }
+
+
+
+        $scope.Comparepassword = function () {
+            if ($scope.UserModel.Password !== $scope.UserModel.ConfirmPassword) {
+                $scope.ComparepasswordStatus = true;
+            }
+            else {
+                $scope.ComparepasswordStatus = false;
+            }
+        };
+
+        $scope.ComparepasswordChanged = function () {
+            $scope.ComparepasswordStatus = false;
+        }
+
         $scope.Cancel = function () {
             $location.path('login');
         };

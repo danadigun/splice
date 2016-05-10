@@ -2,11 +2,11 @@
     .controller('loginController', ['$scope', 'loginService', '$location', '$rootScope', 'growl', function ($scope, loginService, $location, $rootScope, growl) {
         $rootScope.hidebar = false;
         $scope.loginModel = {
-            UserName: "",
+            Email: "",
             Password: ""
         }
         $scope.Login = function () {
-            if ($.fn.validateForceFully($("#loginForm")) == true) {
+            //if ($.fn.validateForceFully($("#loginForm")) == true) {
                 loginService.login($scope.loginModel)
                    .then(function (response) {
                        if (response.data.Success) {
@@ -21,7 +21,7 @@
 
 
             }
-        }
+       // }
 
 
     }])
