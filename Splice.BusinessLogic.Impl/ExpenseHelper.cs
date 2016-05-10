@@ -29,7 +29,7 @@ namespace Splice.BusinessLogic.Impl
         public ExpenseWithItems GetExpenseWithItems(int expenseId)
         {
             var expense = _expenseRepo.GetById(expenseId);
-            var expenseItems = _expenseItemsRepo.Get(x => x.ExpenseId == expenseId);
+            var expenseItems = _expenseItemsRepo.FetchAll(x => x.ExpenseId == expenseId);
 
             var expenseWithItems = new ExpenseWithItems
             {

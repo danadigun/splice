@@ -12,6 +12,6 @@ namespace Splice.DTO
         public int TransactionId { get; set; }
         public DateTime DateCreated { get; set; }
         public string SoldBy { get; set; }
-        public List<SalesTransactionItem> SalesTransactionItemList { get; set; }
+        public IList<SalesTransactionItem> SalesTransactionItemList { get; set; }
     }
 }

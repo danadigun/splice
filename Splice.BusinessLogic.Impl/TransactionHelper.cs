@@ -50,7 +50,7 @@ namespace Splice.BusinessLogic.Impl
         public TransactionWithItemsDTO GetTransactionWithItems(int transactionId)
         {
             var salesTransaction = _transactionRepo.GetById(transactionId);
-            var salesTransactionItemsList = _transactionItemRepo.Get(x => x.SalesTransactionId == transactionId);
+            var salesTransactionItemsList = _transactionItemRepo.FetchAll(x => x.SalesTransactionId == transactionId);
 
             var transactionWithItems = new TransactionWithItemsDTO
             {

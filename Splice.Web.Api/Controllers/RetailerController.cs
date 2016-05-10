@@ -36,7 +36,7 @@ namespace Splice.Web.Api.Controllers
         [HttpPost]
         public LoginResult login(User user)
         {
-            return _userHelper.login(user);
+            return _userHelper.login(user.Email,user.Password);
         }
 
     }

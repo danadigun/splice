@@ -24,7 +24,7 @@ namespace Splice.Repository.Impl
         /// Get all entities
         /// </summary>
         /// <returns></returns>
-        public virtual List<T> GetAll()
+        public virtual IList<T> FetchAll()
         {
             return _session.Query<T>().ToList();
         }
@@ -34,7 +34,7 @@ namespace Splice.Repository.Impl
         /// </summary>
         /// <param name="exp"></param>
         /// <returns></returns>
-        public List<T> Get(Expression<Func<T, bool>> exp)
+        public IList<T> FetchAll(Expression<Func<T, bool>> exp)
         {
             return _session.Query<T>().Where(exp).ToList();
         }
@@ -44,7 +44,7 @@ namespace Splice.Repository.Impl
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
-        public T Get1(Expression<Func<T, bool>> expression)
+        public T Get(Expression<Func<T, bool>> expression)
         {
             return _session.Query<T>().FirstOrDefault(expression);
         }
@@ -83,7 +83,7 @@ namespace Splice.Repository.Impl
         /// <param name="exp"></param>
         public void Delete(Expression<Func<T, bool>> exp)
         {
-            var objects = Get(exp);
+            var objects = FetchAll(exp);
             foreach (var item in objects)
             {
                 this.Delete(item.Id);

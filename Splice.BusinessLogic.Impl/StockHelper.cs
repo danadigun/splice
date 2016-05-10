@@ -74,7 +74,7 @@ namespace Splice.BusinessLogic.Impl
         public StockWithItemsDTO GetStockWithItems(int stockId)
         {
             var stock = _stockRepo.GetById(stockId);
-            var stockItems = _stockItemsRepo.Get(x => x.StockId == stockId);
+            var stockItems = _stockItemsRepo.FetchAll(x => x.StockId == stockId);
 
             var stockWithItems = new StockWithItemsDTO
             {
@@ -89,7 +89,7 @@ namespace Splice.BusinessLogic.Impl
         public object GetAllStockWithItems()
         {
             var allStock = new List<object>();
-            var stock = _stockRepo.GetAll();
+            var stock = _stockRepo.FetchAll();
 
             foreach (var item in stock)
             {
@@ -100,12 +100,12 @@ namespace Splice.BusinessLogic.Impl
 
         public IList<Stock> GetAllStock()
         {
-            return _stockRepo.GetAll();
+            return _stockRepo.FetchAll();
         }
 
         public IList<StockItems> GetAllProducts()
         {
-            var products = _stockItemsRepo.GetAll();
+            var products = _stockItemsRepo.FetchAll();
             return products;
         }
         public bool RemoveStock(int stockId)

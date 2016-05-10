@@ -20,23 +20,28 @@ namespace Splice.BusinessLogic.Impl
 
         public void Save(User user)
         {
-            var encreptedPass = user.Password.EncreptedPassword();
-            user.Password = encreptedPass;
-            user.Type = "Retailer";
-            _userRepo.Save(user);
+            try
+            {
+                var encreptedPass = user.Password.EncreptedPassword();
+                user.Password = encreptedPass;
+                user.Type = "Retailer";
+                _userRepo.Save(user);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public LoginResult login(User user)
+        public LoginResult login(string email,string password)
         {
-            var encreptedPass = user.Password.EncreptedPassword();
-            user.Password = encreptedPass;
-            var usr = _userRepo.Get1(x => x.Email == user.Email && x.Password == encreptedPass);
-            if (usr != null)
+            var encreptedPass = password.EncreptedPassword();
+            var user = _userRepo.Get(x => x.Email == email && x.Password == encreptedPass);
+            if (user != null)
             {
                 return new LoginResult
                 {
                     Success = true
-
                 };
             }
             return new LoginResult

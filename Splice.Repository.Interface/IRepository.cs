@@ -14,15 +14,22 @@ namespace Splice.Repository.Interface
         /// Get all elements of type T
         /// </summary>
         /// <returns></returns>
-        List<T> GetAll();
+        IList<T> FetchAll();
 
         /// <summary>
         /// Get elements that comply to the specified criteria
         /// </summary>
         /// <param name="exp"></param>
         /// <returns></returns>
-        List<T> Get(Expression<Func<T, bool>> exp);
-        T Get1(Expression<Func<T, bool>> expression);
+        IList<T> FetchAll(Expression<Func<T, bool>> exp);
+
+        /// <summary>
+        /// Get element that comply to the specified criteria
+        /// </summary>
+        /// <param name="exp"></param>
+        /// <returns></returns>
+        T Get(Expression<Func<T, bool>> exp);
+
         /// <summary>
         /// Get an instance of T with the specified id
         /// </summary>
