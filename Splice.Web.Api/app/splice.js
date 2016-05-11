@@ -5,7 +5,7 @@ splice.config(['growlProvider', function (growlProvider) {
     growlProvider.globalTimeToLive(3000);
 }]);
 splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
-   
+
     $mdThemingProvider.theme('docs-dark', 'default')
      .primaryPalette('blue')
      .dark();
