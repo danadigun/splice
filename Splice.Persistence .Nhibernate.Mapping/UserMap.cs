@@ -27,6 +27,7 @@ namespace Splice.Persistence.Nhibernate.Mapping
             Map(x => x.Deleted);
             Map(x => x.CreatedTime);
             Map(x => x.LastUpdateTime);
+            Map(x => x.AuthToken);
         }
     }
 }

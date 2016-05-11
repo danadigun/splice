@@ -10,5 +10,7 @@ namespace Splice.DTO
     {
         public virtual bool Success { get; set; }
         public virtual string Message { get; set; }
+        public virtual string Token { get; set; }
     }
+   
 }

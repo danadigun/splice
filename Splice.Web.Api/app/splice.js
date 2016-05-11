@@ -1,10 +1,11 @@
-﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier', 'splice.product', 'JDatePicker', 'angular-growl', 'ngMask']);
+﻿var splice = angular.module('spliceApp', ['ngMaterial', 'ui.router', 'splice.dashboard', 'splice.customer', 'splice.cashier', 'splice.product', 'JDatePicker', 'angular-growl', 'ngMask', 'ngCookies']);
 
 splice.value("baseUrl", '');
-
-splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, growlProvider) {
-    growlProvider.globalDisableCountDown(true);
-
+splice.config(['growlProvider', function (growlProvider) {
+    growlProvider.globalTimeToLive(3000);
+}]);
+splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+   
     $mdThemingProvider.theme('docs-dark', 'default')
      .primaryPalette('blue')
      .dark();
@@ -18,7 +19,7 @@ splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
         views: {
             'index': {
                 templateUrl: 'modules/login/login.html',
-                controller:'loginController',
+                controller: 'loginController',
                 theme: ''
             }
         },
@@ -38,11 +39,21 @@ splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
         views: {
             'index': {
                 templateUrl: '/App/modules/dashboard/dashboard.html',
-                controller:'StoreHealthController'
+                controller: 'StoreHealthController'
             }
         },
         url: '/dashboard'
     })
+    .state('stock', {
+        views: {
+            'index': {
+                templateUrl: '/App/modules/stock/stock.html',
+                controller: 'retailerController'
+            }
+        },
+        url: '/stock'
+    })
+
     .state('sell', {
         views: {
             'index': {
@@ -100,12 +111,34 @@ splice.controller('SliderController', function ($scope, $mdSidenav) {
     }
 });
 
-splice.run(function ($log, $rootScope, $location) {
-    $log.debug("splice running");
+splice.run(function ($log, $rootScope, $location, $cookieStore, $http, loginService) {
     $rootScope.hidebar = false;
+    $rootScope.globals = $cookieStore.get('globals');
+    $log.debug("splice running");
 
-    $rootScope.logout = function () {
-        $location.path('login');
+
+    $rootScope.Logout = function () {
+        loginService.logout({ AuthToken: $rootScope.globals })
+        .then(function () {
+            $rootScope.globals = ''
+            $cookieStore.remove('globals');
+            $location.path('login');
+        })
     };
+
+
+    if ($rootScope.globals != "" && $rootScope.globals != undefined) {
+        $rootScope.hidebar = true;
+        $http.defaults.headers.common['Authorization'] = $rootScope.globals;
+
+        if ($.inArray($location.path(), ['/login', '/dashboard']) !== -1)
+            $location.path("dashboard");
+    }
+    else {
+        $rootScope.hidebar = false;
+        $location.path("login");
+
+    }
+
 
 });

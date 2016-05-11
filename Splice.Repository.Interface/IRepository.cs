@@ -54,5 +54,13 @@ namespace Splice.Repository.Interface
         /// </summary>
         /// <param name="exp"></param>
         void Delete(Expression<Func<T, bool>> exp);
+
+        /// <summary>
+        /// check is existed user
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        bool IsExist(Expression<Func<T, bool>> expression);
+        void Update(T entity);
     }
 }

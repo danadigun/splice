@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlreadyExistException.cs" />
     <Compile Include="EncreptionDecreption.cs" />
     <Compile Include="ExpenseDTO.cs" />
+    <Compile Include="HttpResult.cs" />
     <Compile Include="loginResult.cs" />
     <Compile Include="ProductDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

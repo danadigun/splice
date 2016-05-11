@@ -1,7 +1,7 @@
 ﻿var splice = angular.module('spliceApp')
     .controller('retailerController', ['$scope', 'retailerService', '$location', 'growl', function ($scope, retailerService, $location, growl) {
-
-
+        $scope.Error = false;
+        $scope.signUpText = "Register Now";
         $scope.UserModel = {
 
             FirstName: "",
@@ -18,21 +18,26 @@
         }
 
         $scope.CreateUser = function () {
-            //if ($.fn.validateForceFully($("#signUpId")) == true) {
+            $scope.signUpText = "Submitting...";
+            $scope.signupDisable = true;
+          
                 retailerService.createUser($scope.UserModel)
                            .then(function (response) {
-                               if (response) {
-                                   growl.success('Welcome! ' + $scope.UserModel.FirstName)
+                               if (response.data.Success) {
+                                 growl.success('Welcome! ' + $scope.UserModel.FirstName)
                                    $location.path('dashboard');
                                }
                                else {
-                                   growl.error('Unable to CreateUser,Please try again.')
+                                   $scope.signUpText = "Register Now";
+                                   $scope.signupDisable = false;
+                                   $scope.Error = response.data.Message;
+                                   //growl.error('Unable to CreateUser,Please try again.')
                                }
                            })
 
 
             }
-        //}
+
 
 
 

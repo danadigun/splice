@@ -89,5 +89,22 @@ namespace Splice.Repository.Impl
                 this.Delete(item.Id);
             }
         }
+
+        /// <summary>
+        /// IsExist
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public bool IsExist(Expression<Func<T, bool>> expression)
+        {
+            var qureyResults = _session.Query<T>().Where(expression);
+            return (qureyResults != null && qureyResults.Count() > 0);
+        }
+        public void Update(T entity)
+        {
+            Base baseObject = (Base)entity;
+            baseObject.LastUpdateTime = DateTime.Now;
+            _session.SaveOrUpdate(entity);
+        }
     }
 }

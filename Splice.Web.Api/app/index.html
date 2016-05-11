@@ -24,6 +24,7 @@
     <script src="Scripts/growl/angular-growl.js"></script>
     <script src="Scripts/mask/ngMask.js"></script>
     <script src="Scripts/mask/ngMask.min.js"></script>
+    <script src="Scripts/angular-cookies(1).js"></script>
 
 
 </head>
@@ -46,7 +47,7 @@
                 <span class="text-primary-color">Splice</span>
                 <span flex></span>
                 <ul class="nav navbar-nav nav-style">
-                    <li style="float:right;"><a href="javascript://" ng-click="logout()" style="color: #fff;">Logout <span class="sr-only"></span></a></li>
+                    <li style="float:right;"><a href="javascript://" ng-click="Logout()" style="color: #fff;">Logout <span class="sr-only"></span></a></li>
                    
                 </ul>
             </div>
@@ -63,7 +64,7 @@
                     </md-button>
                 </md-list-item>
                  <md-list-item>
-                    <md-button class="list-button waves-effect waves-light" ui-sref="sell">
+                    <md-button class="list-button waves-effect waves-light" ui-sref="stock">
                         <i class="fa fa-cart-plus" style="padding-right:10px; color:#0094ff; font-size:20px;" ;></i>
                         Stock
                     </md-button>

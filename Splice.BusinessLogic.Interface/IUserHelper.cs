@@ -11,6 +11,7 @@ namespace Splice.BusinessLogic.Interface
     public interface IUserHelper
     {
         LoginResult Login(string email,string password);
-        void Save(User user);
+        HttpResult Save(User user);
+        void Logout(User user);
     }
 }

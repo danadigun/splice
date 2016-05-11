@@ -5,6 +5,10 @@
         return $http.post(baseUrl + '/api/Retailer/login', loginModel);
     };
 
+    loginService.logout = function (loginModel) {
+        return $http.post(baseUrl + '/api/Retailer/Logout', loginModel);
+    };
+
 
     
     return loginService;

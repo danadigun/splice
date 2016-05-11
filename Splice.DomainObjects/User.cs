@@ -18,5 +18,6 @@ namespace Splice.DomainObjects
         public virtual string StoreName { get; set; }
         public virtual string RetailURL { get; set; }
         public virtual string Type { get; set; }
+        public virtual string AuthToken { get; set; }
     }
 }

@@ -1,12 +1,14 @@
 ﻿<link href="Content/bootstrap.min.css" rel="stylesheet" />
-
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 <div class="col s12 z-depth-6 card-panel col-md-8" style="margin-left: 208px!important;">
     <form class="login-form" id="signUpId" name="signupform">
         <div class="row">
+          <div style="margin: 10px;" ng-show="Error!=''" class="alert alert-danger">{{Error}}</div>
             <div class="input-field col s12 center">
                 <span>
                     <h4 class="text-uppercase">Please Signup</h4>
+                    
                 </span>
             </div>
         </div>
@@ -81,7 +83,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">               
-                <input type="button" class="btn waves-effect waves-light col s12" ng-disabled="signupform.$invalid" ng-click="CreateUser()" value="Register Now" />
+                <input type="button" class="btn waves-effect waves-light col s12" ng-disabled="signupform.$invalid || signupDisable" ng-click="CreateUser()" value="{{signUpText}}" />
             </div>
             <div class="input-field col s12">
                 <p class="margin center medium-small sign-up">Already have an account? <a href="#/login">Login</a></p>               

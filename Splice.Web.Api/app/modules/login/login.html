@@ -19,14 +19,14 @@
             <div class="row margin nomargin">
                 <div class="input-field col s11">
                     <i class="mdi-action-lock-outline prefix"></i>
-                    <input id="password" type="password" class="validate"required="required" ng-model="loginModel.Password">
+                    <input id="password" type="password" class="validate" required="required" ng-model="loginModel.Password">
                     <label for="password" class="">Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                
-                    <input type="button" class="btn waves-effect waves-light col s12" ng-disabled="loginForm.$invalid" ng-click="Login()" value="Login" />
+
+                    <input type="button" class="btn waves-effect waves-light col s12" ng-disabled="loginForm.$invalid || loginDisable" ng-click="Login()" value="{{loginText}}" />
                 </div>
                 <div class="input-field col s12">
                     <p class="margin center medium-small sign-up">Don't have an account? <a href="#/signup">SignUp</a></p>

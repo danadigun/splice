@@ -701,10 +701,13 @@
     <Content Include="app\modules\sell\sell.js" />
     <Content Include="app\modules\services\loginService.js" />
     <Content Include="app\modules\services\retailerService.js" />
+    <Content Include="app\modules\stock\controller\stockController.js" />
+    <Content Include="app\modules\stock\stock.html" />
     <Content Include="app\Scripts\angular-animate.js" />
     <Content Include="app\Scripts\angular-animate.min.js" />
     <Content Include="app\Scripts\angular-aria.js" />
     <Content Include="app\Scripts\angular-aria.min.js" />
+    <Content Include="app\Scripts\angular-cookies%281%29.js" />
     <Content Include="app\Scripts\angular-cookies.js" />
     <Content Include="app\Scripts\angular-cookies.min.js" />
     <Content Include="app\Scripts\angular-csp.css" />
@@ -1770,7 +1773,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\modules\stock\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
