@@ -110,7 +110,7 @@ JDatePicker.directive('jMdDatepicker', function ($timeout, $filter, $mdDialog, $
             placeholder: '@',
             orientation: '@'
         },
-        template: '<md-input-container md-no-float>\
+        template: '<md-input-container md-no-float style="width:466px!important">\
 	<label ng-attr-for="jmddpcomp-{{serial}}">{{placeholder}}</label>\
 	<input type="text" ng-attr-id="jmddpcomp-{{serial}}" ng-model="SelectedDateText" ng-click="PopupDialogComponent($event, SelectedDate)" />\
 </md-input-container>',

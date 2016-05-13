@@ -699,9 +699,11 @@
     <Content Include="app\modules\reports\reports.html" />
     <Content Include="app\modules\sell\sell.html" />
     <Content Include="app\modules\sell\sell.js" />
+    <Content Include="app\modules\services\stockService.js" />
     <Content Include="app\modules\services\loginService.js" />
     <Content Include="app\modules\services\retailerService.js" />
     <Content Include="app\modules\stock\controller\stockController.js" />
+    <Content Include="app\modules\stock\create.html" />
     <Content Include="app\modules\stock\stock.html" />
     <Content Include="app\Scripts\angular-animate.js" />
     <Content Include="app\Scripts\angular-animate.min.js" />

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Splice.BusinessLogic.Impl
 {
@@ -28,7 +29,24 @@ namespace Splice.BusinessLogic.Impl
         /// <param name="stock"></param>
         public void CreateStock(Stock stock)
         {
-            _stockRepo.Save(stock);
+            using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
+            {
+                try
+                {
+                    stock.CreatedTime = DateTime.Now;
+                    stock.LastUpdateTime = DateTime.Now;
+                    stock.Deleted = 0;
+                    _stockRepo.Save(stock);
+                    scope.Complete();
+                }
+
+
+                catch (Exception ex)
+                {
+                    scope.Dispose();
+                    throw ex;
+                }
+            }
         }
 
         /// <summary>
@@ -86,6 +104,10 @@ namespace Splice.BusinessLogic.Impl
 
             return stockWithItems;
         }
+        /// <summary>
+        /// Get AllStockWithItems
+        /// </summary>
+        /// <returns></returns>
         public object GetAllStockWithItems()
         {
             var allStock = new List<object>();
@@ -98,16 +120,29 @@ namespace Splice.BusinessLogic.Impl
             return allStock;
         }
 
+        /// <summary>
+        /// Get AllStock
+        /// </summary>
+        /// <returns></returns>
         public IList<Stock> GetAllStock()
         {
             return _stockRepo.FetchAll();
         }
 
+        /// <summary>
+        /// Get AllProducts
+        /// </summary>
+        /// <returns></returns>
         public IList<StockItems> GetAllProducts()
         {
             var products = _stockItemsRepo.FetchAll();
             return products;
         }
+        /// <summary>
+        /// Remove Stock by Id
+        /// </summary>
+        /// <param name="stockId"></param>
+        /// <returns></returns>
         public bool RemoveStock(int stockId)
         {
             var stock = _stockRepo.GetById(stockId);
@@ -120,6 +155,11 @@ namespace Splice.BusinessLogic.Impl
             return false;
         }
 
+        /// <summary>
+        /// Remove Item From Stock by itemId
+        /// </summary>
+        /// <param name="itemId"></param>
+        /// <returns></returns>
         public bool RemoveItemFromStock(int itemId)
         {
             _stockItemsRepo.Delete(itemId);

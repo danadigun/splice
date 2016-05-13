@@ -21,17 +21,30 @@ namespace Splice.Web.Api.Controllers
             _stockHelper = stockHelper;
         }
              
-        
+        /// <summary>
+        /// Get All Stock
+        /// </summary>
+        /// <returns></returns>
         public IList<Stock> Get()
         {
             return _stockHelper.GetAllStock();
         }
-                
+            
+        /// <summary>
+        /// Get Stock With Items by StokId
+        /// </summary>
+        /// <param name="stockid"></param>
+        /// <returns></returns>
         public StockWithItemsDTO GetStockWithItems(int stockid)
         {
             return _stockHelper.GetStockWithItems(stockid);
         }
 
+        /// <summary>
+        /// add items to stock
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
         [HttpPost]
         public bool Post(StockDTO dto)
         {
@@ -57,11 +70,20 @@ namespace Splice.Web.Api.Controllers
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dto"></param>
         public void Put(StockDTO dto)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Delete
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
         public object Delete(StockDTO dto)
         {
             if (dto.StockId.HasValue)
@@ -76,5 +98,15 @@ namespace Splice.Web.Api.Controllers
             }
             return false;
         }
+        /// <summary>
+        /// CreateStock
+        /// </summary>
+        /// <param name="stock"></param>
+        [HttpPost]
+        public void CreateStock(Stock stock)
+        {
+            _stockHelper.CreateStock(stock);
+        }
+
     }
 }

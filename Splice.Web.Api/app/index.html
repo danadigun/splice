@@ -3,14 +3,14 @@
 <head>
     <title>Splice - Inventory & Transaction Management Platform</title>
 
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-      <script src="Content/bower_components/angular/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+    <script src="Content/bower_components/angular/angular.js"></script>
     <link href="Content/bower_components/angular-material/angular-material.min.css" rel="stylesheet" />
     <link href="Content/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="Content/palette.css" rel="stylesheet" />
     <link href="Content/app.css" rel="stylesheet" />
     <link href="Content/materialize-v0.97.1/css/materialize.min.css" rel="stylesheet" />
-    
+
     <meta name="viewport" content="initial-scale=1" />
     <link href="Content/style.css" rel="stylesheet" />
     <!--chart-->
@@ -27,10 +27,11 @@
     <script src="Scripts/angular-cookies(1).js"></script>
 
 
+
 </head>
-<body ng-app="spliceApp" layout="column">    
-     <div growl></div>
-  <!--  <header class="main-header" ng-show="hidebar" >
+<body ng-app="spliceApp" layout="column">
+    <div growl></div>
+    <!--  <header class="main-header" ng-show="hidebar" >
             <nav class="navbar-style" role="navigation">
                 <ul class="nav navbar-nav nav-style">
                     <li style="float:right;"><a href="javascript://" ng-click="logout()" style="color: #fff;">Logout <span class="sr-only"></span></a></li>
@@ -40,7 +41,7 @@
         </header>
 
     <div >-->
-        <md-toolbar layout="row"  ng-show="hidebar">
+    <md-toolbar layout="row" ng-show="hidebar">
             <div class="md-toolbar-tools dark-primary-color">
               <!--  <md-button class="md-menu text-primary-color " style="float:left; padding-top:10px; margin-right:20px;" ng-click="slideOpenLeft()" hide-gt-sm>
                     <i class="fa fa-bars" style="font-size:25px; color:white;"></i>
@@ -55,8 +56,8 @@
 
         </md-toolbar>
     </div>
-    <div layout="row" flex >
-        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" layout="column" class="md-whiteframe-z2 "ng-show="hidebar">
+    <div layout="row" flex>
+        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" layout="column" class="md-whiteframe-z2 " ng-show="hidebar">
             <md-list>
                 <md-list-item>
                     <md-button class="list-button waves-effect waves-light" ui-sref="dashboard">
@@ -123,14 +124,14 @@
             </div>
         </md-content>
     </div>
-     <!--   <script src="Scripts/jquery-1.7.1.js"></script>-->
-  
-   <!-- <script src="Content/bower_components/angular/angular.js"></script>-->
+    <!--   <script src="Scripts/jquery-1.7.1.js"></script>-->
+
+    <!-- <script src="Content/bower_components/angular/angular.js"></script>-->
     <script src="Scripts/angular-ui-router.min.js"></script>
     <script src="Content/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="Content/bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="Scripts/angular-animate.min.js"></script>
-    <script src="Scripts/angular-aria.min.js"></script> 
+    <script src="Scripts/angular-aria.min.js"></script>
     <script src="Content/bower_components/angular-material/angular-material.min.js"></script>
     <script src="Content/materialize-v0.97.1/js/materialize.min.js"></script>
     <script src="Scripts/angular-cookies.js"></script>
@@ -139,13 +140,15 @@
     <script src="modules/customer/customer.js"></script>
     <script src="modules/cashier/cashier.js"></script>
     <script src="modules/product/product.js"></script>
-    <script src="jDatePicker.js"></script>    
+    <script src="jDatePicker.js"></script>
     <script src="Scripts/moment.min.js"></script>
     <script src="Scripts/moment-with-locales.min.js"></script>
     <script src="modules/product/viewStock.js"></script>
     <script src="modules/sell/sell.js"></script>
     <script src="modules/login/controller/loginController.js"></script>
     <script src="modules/login/controller/retailerController.js"></script>
+    <script src="modules/stock/controller/stockController.js"></script>
+    <script src="modules/services/stockService.js"></script>
     <script src="modules/services/loginService.js"></script>
     <script src="modules/services/retailerService.js"></script>
 </body>

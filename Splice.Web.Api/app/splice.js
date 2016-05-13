@@ -48,12 +48,20 @@ splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
         views: {
             'index': {
                 templateUrl: '/App/modules/stock/stock.html',
-                controller: 'retailerController'
+                controller: 'stockController'
             }
         },
         url: '/stock'
     })
-
+          .state('create', {
+              views: {
+                  'index': {
+                      templateUrl: '/App/modules/stock/create.html',
+                      controller: 'stockController'
+                  }
+              },
+              url: '/create'
+          })
     .state('sell', {
         views: {
             'index': {
@@ -102,7 +110,7 @@ splice.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
         },
         url: '/cashier'
     })
-});
+    });
 
 //controller for sidenav open
 splice.controller('SliderController', function ($scope, $mdSidenav) {
