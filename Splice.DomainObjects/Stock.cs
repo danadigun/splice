@@ -14,6 +14,5 @@ namespace Splice.DomainObjects
         public virtual int MaxQuantity { get; set; }
         public virtual DateTime AvailabilityDate { get; set; }
         public virtual string Status { get; set; }
-        public virtual int Deleted { get; set; }
     }
 }

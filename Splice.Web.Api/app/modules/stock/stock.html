@@ -1,4 +1,4 @@
-﻿<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ManageStockController">
+﻿<!--<md-content style="width:75%; margin-left:auto; margin-right:auto;" ng-controller="ManageStockController">
     <md-subheader style="border-bottom:3px solid #9c27b0;">
         <span class="md-headline">
             <i class="fa fa-shopping-basket" style="margin-right:20px;"></i>{{step}}
@@ -9,23 +9,14 @@
             <md-tooltip md-direction="right">
                 Close and return to dashboard
             </md-tooltip>
-        </button>
-        
-           <!-- <button ng-show="hasList" style="float:right; margin-right:1em; background:#9c27b0; font-size:10pt;" class="btn btn-sm waves-effect view-list">
-                view list
-                <md-tooltip md-direction="left">
-                    <span>
-                        <i class="fa fa-check"></i>  View list of stock items
-                    </span>
-                </md-tooltip>
-            </button>
-       -->
+        </button>      
+     
         
         
     </md-subheader>
 
     <!--UI To create stock-->
-    <form ng-submit="createStock()" id="create-stock" style="background:white; padding:30px; justify-content:center; padding-bottom:50px;">
+    <!--<form ng-submit="createStock()" id="create-stock" style="background:white; padding:30px; justify-content:center; padding-bottom:50px;">
         <div layout-gt-xs="row">
             <md-input-container flex-gt-xs>
                 <label><i class="fa fa-shopping-basket"></i>&nbsp;&nbsp;Stock Description e.g <i>Deccember 2, 2015 stock</i></label>
@@ -34,9 +25,7 @@
 
 
         </div>
-  <!--      <div layout-gt-xs="row">
-            <i class="fa fa-calendar-check-o" style="color:#808080"></i><j-md-datepicker required ng-model="stock.dateCreated" placeholder="Date Stock was recieved" orientation="landscape" style="margin-top:-2em;"></j-md-datepicker>
-        </div>-->
+  
         <div>
             <span style="float:right; display:block;">
                 <a href="#/create"><button class="btn btn-primary"> + create new stock  </button></a>
@@ -45,101 +34,133 @@
         </div>
     </form>
 
-    <!--UI to add items-->
-   <!-- <div id="add-items" style="background:white; padding:30px; justify-content:center; padding-bottom:50px;">
-        <div style="width:100%; padding:20px;margin-top:-2em; background:#9c27b0; color:white">
-            <i class="fa fa-check" style="margin-right:2em; "></i><i class="fa fa-truck"></i>&nbsp;{{stock.title}}
-            <span style="display:block; padding-top:2pt; padding-left:3em;">
-                <i class="fa fa-calendar-check-o"></i>&nbsp;{{date}}
-            </span>
+</md-content>-->
+<div ng-controller="ManageStockController">
+    <div class="card card-header">
+        <div class="card-content">
+            <div class="card-title" style="color:#727272">
+                <!--<i class="fa fa-product-hunt" style="padding-right:10px; color:#0094ff; font-size:30px;"></i>-->
+                Stocks
+               <span style="float:right; display:block;">
+                <a href="#/create"><button class="btn btn-primary"> + create new stock  </button></a>
+                <md-progress-circular ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
+            </span>                
+            </div>
         </div>
-        <div class="row">
-            <form class="col s12" ng-submit="addItemToStock()">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input ng-model="product.category" required id="category" type="text" class="validate" />
-                        <label for="category"><i class="fa fa-shopping-basket"></i>&nbsp;Category</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input ng-model="product.name" required id="name" type="text" class="validate" />
-                        <label for="name"><i class="fa fa-product-hunt"></i>&nbsp;Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input required ng-model="product.costPrice" id="cost_price" type="text" class="validate" />
-                        <label for="cost_price">₦&nbsp;Cost Price</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input required ng-model="product.sellingPrice" id="selling_price" type="text" class="validate" />
-                        <label for="selling_price">₦&nbsp;Selling Price</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input ng-model="product.quantity" required id="qty" style="font-size:25pt; color:blue; text-align:center;" type="number" class="validate" />
-                        <label for="qty">Quantity</label>
-                    </div>
-                </div>
-                <div class="row">
-                    
-                    <div class="input-field col s12">
-                        <input type="submit" class="btn btn-sm waves-effect" value="+ add ">
+    </div>
 
-                    </div>
-                    
-            
-                </div>
-            </form>
+    <div class="product-main">    
+        <md-content >
+            <div class="product-main-sub">
+                <md-content layout-gt-sm="row" layout-padding>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label><i class="fa fa-shopping-basket" style="padding-right:10px; color:#0094ff; font-size:20px;"></i>Find Stock</label>
+                        <input ng-model="user.title">
+                    </md-input-container>                    
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-button class="md-fab md-mini md-primary"> <i class="fa fa-search"></i> </md-button>
+                    </md-input-container>
+                </md-content>
+            </div>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Stocks List">
+                    <md-content class="product-listing">
+                        <table class="highlight centered">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">StockName</th>
+                                    <th data-field="id">Title</th>
+                                    <th data-field="name">Description</th>
+                                    <th data-field="stock">MaxQuantity</th>
+                                    <th data-field="price">AvailabilityDate</th>
+                                    <!--<th data-field="action">CreatedTime</th>
+                                     <th data-field="action">LastUpdateTime</th>-->
+                                     <th data-field="action">Action</th>
+                                </tr>
+                            </thead>
 
-        </div>
-    </div>-->
-    <!--UI to list items-->
- <!--   <div id="table-list" style="padding-top:3em;">
-        <span style="float:left">
-            <button class="btn  btn-floating waves-effect" ng-click="showAddItems()">
-                +
-                <md-tooltip md-direction="left">
-                   Add new item
-                </md-tooltip>
-            </button>
-        </span>
-        <span style="float:right">
+                            <tbody>
+                                <tr>
+                                    <td>New Stock</td>
+                                    <td>abc</td>
+                                    <td>abc</td>
+                                    <td>12</td>
+                                    <td>2016-05-25 18:30:00.000</td>
+                                   <!-- <td>2016-05-25 18:30:00.000</td>
+                                    <td>2016-05-25 18:30:00.000</td>-->
+                                    <td>
+                                        <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#808080;">
+                                            <i style="font-size:10pt;" class="fa fa-shopping-basket "></i>
+                                        </a>
+                                        <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080;">
 
-            <button class="btn  btn-floating red" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-                <i class="fa fa-chevron-left"></i>
-            </button>
-            {{currentPage+1}}/{{numberOfPages()}}
-            <button class="btn  btn-floating red" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
-                <i class="fa fa-chevron-right"></i>
-            </button>
+                                            <i style="font-size:11pt;" class="fa fa-edit"></i>
 
-        </span>
-        <table>
-            <thead>
-                <tr>
-                    <th data-field="id">S/N</th>
-                    <th data-field="name">Item Name</th>
-                    <th data-field="price">cost Price</th>
-                    <th data-field="price">selling Price</th>
-                    <th data-field="price">quantity</th>
-                    <th data-field="action">&nbsp;</th>
-                </tr>
-            </thead>
+                                        </a>
+                                        <a title="delete this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080">
 
-            <tbody>
-                <md-progress-circular style="margin-left:3em;" ng-show="isBusy" md-mode="indeterminate"></md-progress-circular>
-                <tr ng-repeat="item in addedItems.items | startFrom:currentPage*pageSize | limitTo:pageSize" >
-                    <td>{{$index + 1}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.costPrice}}</td>
-                    <td>{{item.sellingPrice}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>
-                        <button ng-click="removeProduct(item.Id)" class="btn waves-effect waves-light btn-floating" style="background:#808080; ">x</button>
+                                            <i style="font-size:11pt;" class="fa fa-trash"></i>
 
-                    </td>
-                </tr>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                  <td>New Stock1</td>
+                                    <td>abc</td>
+                                    <td>abc</td>
+                                    <td>12</td>
+                                    <td>2016-05-25 18:30:00.000</td>
+                                    <!--<td>2016-05-25 18:30:00.000</td>
+                                    <td>2016-05-25 18:30:00.000</td>-->
+                                    <td>
+                                        <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#808080;">
+                                            <i style="font-size:10pt;" class="fa fa-shopping-basket "></i>
+                                        </a>
+                                        <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080;">
 
-            </tbody>
-        </table>
-       </div>-->
-</md-content>
+                                            <i style="font-size:11pt;" class="fa fa-edit"></i>
+
+                                        </a>
+                                        <a title="delete this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080">
+
+                                            <i style="font-size:11pt;" class="fa fa-trash"></i>
+
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                  <td>Stock</td>
+                                    <td>abc</td>
+                                    <td>abc</td>
+                                    <td>12</td>
+                                    <td>2016-05-25 18:30:00.000</td>
+                              <!--      <td>2016-05-25 18:30:00.000</td>
+                                    <td>2016-05-25 18:30:00.000</td>-->
+                                    <td>
+                                        <a title="sell this product" class="btn btn-floating  waves-effect waves-light" style=" background:#808080;">
+                                            <i style="font-size:10pt;" class="fa fa-shopping-basket "></i>
+                                        </a>
+                                        <a title="edit this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080;">
+
+                                            <i style="font-size:11pt;" class="fa fa-edit"></i>
+
+                                        </a>
+                                        <a title="delete this product" class="btn btn-floating  waves-effect waves-light" style="background:#808080">
+
+                                            <i style="font-size:11pt;" class="fa fa-trash"></i>
+
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-content>
+                </md-tab>              
+            </md-tabs>
+        </md-content>
+    </div>
+
+
+</div>
+
+
